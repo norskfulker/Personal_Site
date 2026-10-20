@@ -1,0 +1,147 @@
+# Sri's Consulting Website: Context + Agenda
+
+Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, then work through AGENDA in order.
+
+## PART 1: CONTEXT
+
+### Who and why
+
+- Owner: Sri, founder-consultant, based in India.
+- Visitors: startup founders, small and mid-size businesses, government and public-sector decision makers.
+- Site goal: get visitors to book a free 15-minute call. Every page ends with that call-to-action.
+
+### Brand
+
+- Tagline: "Market it. Advise it. Audit it."
+- Pitch: Performance marketing, advisory for startups and government, and software and audit consulting.
+- Tone: plain, direct, confident. Short sentences. No hype.
+- Banned words: world-class, cutting-edge, synergy, revolutionary, best in India.
+
+### The 3 services (do not add, remove or rename without owner approval)
+
+1. Performance Marketing & Branding
+   - Paid ads (Meta, Google, LinkedIn), funnels, landing pages, tracking, reports
+   - Personal branding and corporate branding, pre-launch campaigns
+   - Pricing model: monthly retainer, ad spend billed separately
+2. Corporate Advisory for Government & Startups
+   - Startups: business validation, market research, go-to-market, investor documents
+   - Government: project and policy advisory, proposal support, process reviews
+   - Pricing model: fixed-scope packages or day rate
+3. Software & Audit Consultancy
+   - Architecture and tech-stack advice, build vs buy, vendor selection
+   - Code, security, process and compliance audits
+   - Deliverable: risk report ranked high / medium / low, plus fix plan
+   - Pricing model: fixed fee per audit
+
+### Facts about the owner (use only these)
+
+- Co-founded GOGAME, a mobile gaming company.
+- Building PowerProof, a business validation and market intelligence platform for Indian MSMEs.
+- Microsoft Research internship in his background.
+- Based in India.
+
+### Page map
+
+- Home: hero, 3 service cards, how it works, one case study, CTA
+- Services: one section per pillar
+- Who I Work With: startups, businesses, government, founders
+- Work: case studies
+- About
+- FAQ
+- Contact: booking link, email, LinkedIn, GitHub
+
+### Case study format (always)
+
+- Problem (1 sentence)
+- What I did (2 sentences max)
+- Result (one real number or outcome)
+
+### Footer text (keep on every page)
+
+"Advisory is practical guidance, not legal, tax or financial advice."
+
+### SEO defaults
+
+- Title: Sri | Performance Marketing, Corporate Advisory and Software Audits
+- Description: Performance marketing and branding, advisory for startups and government, and software and audit consulting. Book a free 15-min call.
+- One H1 per page. Titles under 60 characters. Descriptions under 160.
+
+### Rules for editing
+
+**Allowed without asking**
+
+- Fix typos and grammar
+- Tighten wording in the same tone
+- Add a case study when the owner supplies all three parts
+- Update prices, turnaround times, links, email when the owner gives new values
+- Keep SEO title and description in sync with the services
+
+**Ask the owner first**
+
+- Adding, removing or renaming a service
+- Any claim about government clients, certifications, awards or named clients
+- Changing the tagline, pricing model or CTA
+- Deleting a page or section
+
+**Never**
+
+- Invent testimonials, metrics, clients, logos or credentials
+- Promise legal, tax or financial advice
+- Publish live. Save as draft and tell the owner.
+
+### Placeholders the owner still must fill
+
+- Booking link, email, LinkedIn, GitHub
+- Real results for each case study
+- Final prices and turnaround times
+- Whether government work has actually been done (decides what the Government track may claim)
+- Whether build / DevOps is still offered (currently NOT listed)
+
+## PART 2: AGENDA
+
+Work top to bottom. Stop at each CHECKPOINT and report in 3 lines: what changed, what is pending, what you need.
+
+### Phase 1: Sync the site to this context (one-time)
+
+1. Compare every page against Part 1. List mismatches. Do not change anything yet.
+   - Done when: mismatch list is delivered.
+2. Fix mismatches that fall under "Allowed without asking".
+3. Collect questions for everything under "Ask the owner first".
+   - CHECKPOINT 1: send the mismatch list, fixes made and open questions.
+
+### Phase 2: Fill the gaps
+
+4. Replace every placeholder the owner has answered. Leave unanswered ones visibly marked "[owner to confirm]" in the draft only, never on a live page.
+5. Build the Work page: PowerProof case study plus two empty slots using the case study format.
+6. Add the FAQ (4 questions: one service only? small budgets? legal or tax advice? how fast to start?).
+7. Add SEO title and description on every page. Check one H1 per page.
+   - CHECKPOINT 2: summarize and wait for owner approval.
+
+### Phase 3: Quality pass
+
+8. Check on phone width: no horizontal scroll, buttons tappable, CTA visible on every page.
+9. Check page speed. Flag any image over 300 KB.
+10. Check all links, the booking button and the email address work.
+11. Read all copy once for banned words, invented claims and tone.
+    - CHECKPOINT 3: send the issue list with fixes applied. Owner publishes manually.
+
+### Phase 4: Ongoing updates (repeat whenever the owner sends input)
+
+Accepted inputs and what to do:
+
+- New case study (Problem / What I did / Result) → add it to Work, link it from Home if it is the newest.
+- Price or turnaround change (Service / Old / New) → update every place it appears, then list the pages touched.
+- New testimonial with name and permission → add it. No name or permission, do not add.
+- Link or email change → update site-wide, including footer and contact.
+- Service wording change → ask first if it changes meaning.
+
+Weekly check (read-only):
+
+- Compare the live site to Part 1. List mismatches. Change nothing.
+
+### Definition of done for any task
+
+- Draft saved, not published
+- Pages touched are listed
+- Nothing invented
+- Owner has a 3-line summary

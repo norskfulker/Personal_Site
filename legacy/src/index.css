@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* HarmonyOS Sans Fallback Configuration */
+  @font-face {
+    font-family: 'HarmonyOS Sans';
+    src: local('HarmonyOS Sans'), url('../../../src/assets/fonts/HarmonyOS_Sans_Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HarmonyOS Sans';
+    src: local('HarmonyOS Sans Medium'), url('../../../src/assets/fonts/HarmonyOS_Sans_Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'HarmonyOS Sans';
+    src: local('HarmonyOS Sans Bold'), url('../../../src/assets/fonts/HarmonyOS_Sans_Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  body {
+    @apply bg-background-light dark:bg-background-dark text-primary-light dark:text-primary-dark antialiased font-sans transition-colors duration-300;
+  }
+
+  ::selection {
+    @apply bg-accent-blue/30 text-primary-light dark:text-white;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/80 dark:bg-surface-dark/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-lg dark:shadow-black/20;
+  }
+  
+  .glass-panel {
+    @apply bg-surface-light/40 dark:bg-surface-dark/40 backdrop-blur-2xl border border-white/30 dark:border-white/5 shadow-xl dark:shadow-black/40;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  .neon-border {
+    @apply border border-transparent hover:border-accent-blue/20 dark:hover:border-accent-blue/40 transition-colors duration-300;
+  }
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
