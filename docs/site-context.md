@@ -22,16 +22,20 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 1. Performance Marketing & Branding
    - Paid ads (Meta, Google, LinkedIn), funnels, landing pages, tracking, reports
    - Personal branding and corporate branding, pre-launch campaigns
-   - Pricing model: monthly retainer, ad spend billed separately
 2. Corporate Advisory for Government & Startups
    - Startups: business validation, market research, go-to-market, investor documents
    - Government: project and policy advisory, proposal support, process reviews
-   - Pricing model: fixed-scope packages or day rate
 3. Software & Audit Consultancy
    - Architecture and tech-stack advice, build vs buy, vendor selection
    - Code, security, process and compliance audits
    - Deliverable: risk report ranked high / medium / low, plus fix plan
-   - Pricing model: fixed fee per audit
+
+### Pricing (set by owner, Oct 2026)
+
+- One flat monthly retainer: $4,500 per month, covering all three services.
+- Ad spend billed separately.
+- What the client gets (owner's words): information faster than news, work aimed at double-digit revenue growth (business or personal), better products shipped, network access, complete business validation, plus the scope of all 3 services.
+- Revenue growth is an aim, never a guarantee.
 
 ### Facts about the owner (use only these)
 
@@ -93,7 +97,7 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 
 - Booking link, email, LinkedIn, GitHub
 - Real results for each case study
-- Final prices and turnaround times
+- Turnaround times (price is set: $4,500/month retainer)
 - Whether government work has actually been done (decides what the Government track may claim)
 - Whether build / DevOps is still offered (currently NOT listed)
 

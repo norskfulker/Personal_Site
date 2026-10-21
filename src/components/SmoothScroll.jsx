@@ -13,7 +13,7 @@ const SmoothScroll = ({ children }) => {
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 2,
-      anchors: { offset: -20 },
+      anchors: { offset: -84 },
     });
 
     window.lenis = lenis;

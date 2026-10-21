@@ -106,26 +106,37 @@ export const Eyebrow = ({ children, light = false, className = '' }) => (
   </Reveal>
 );
 
-// Pill button with an arrow tile that slides on hover, like the Framer template.
-export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 'primary', className = '' }) => {
+// Pill button with an arrow tile that slides on hover. The site's one job is getting this clicked,
+// so it is loud by default: heavy label, solid fill, and a lift on hover.
+export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 'primary', size = 'md', className = '' }) => {
   const styles = {
-    primary: 'bg-royal text-white shadow-[0_10px_40px_-10px_rgba(36,80,255,0.8)] hover:bg-royal-600',
-    light: 'bg-white text-ink hover:bg-royal-100',
-    ghost: 'bg-ink/[0.04] text-ink ring-1 ring-ink/10 hover:bg-ink/[0.07]',
+    primary: 'bg-royal text-white shadow-[0_14px_40px_-12px_rgba(36,80,255,0.9)] hover:bg-royal-600 hover:shadow-[0_18px_50px_-12px_rgba(36,80,255,1)]',
+    aqua: 'bg-aqua text-ink shadow-[0_14px_40px_-12px_rgba(62,230,193,0.8)] hover:bg-white',
+    light: 'bg-white text-ink hover:bg-aqua',
+    ghost: 'bg-ink/[0.04] text-ink ring-1 ring-ink/15 hover:bg-ink hover:text-white',
+    dark: 'bg-ink text-white hover:bg-royal',
   };
   const tile = {
-    primary: 'bg-white/15 text-white',
-    light: 'bg-royal text-white',
-    ghost: 'bg-ink text-white',
+    primary: 'bg-white text-royal',
+    aqua: 'bg-ink text-aqua',
+    light: 'bg-ink text-white',
+    ghost: 'bg-ink text-white group-hover:bg-white group-hover:text-ink',
+    dark: 'bg-aqua text-ink',
   };
+  const sizes = {
+    md: { pill: 'gap-4 py-2 pl-6 pr-2 text-[15px]', tile: 'h-9 w-9', icon: 17 },
+    lg: { pill: 'gap-5 py-2.5 pl-7 pr-2.5 text-base md:py-3 md:pl-8 md:pr-3 md:text-lg', tile: 'h-11 w-11 md:h-12 md:w-12', icon: 20 },
+  };
+  const sz = sizes[size];
   return (
     <motion.a
       href={href}
       target={href.startsWith('#') ? undefined : '_blank'}
       rel="noreferrer"
       whileHover="hover"
-      whileTap={{ scale: 0.97 }}
-      className={`group inline-flex items-center gap-4 rounded-full py-2 pl-6 pr-2 text-[15px] font-medium transition-colors duration-300 ${styles[variant]} ${className}`}
+      whileTap={{ scale: 0.96 }}
+      variants={{ hover: { y: -2 } }}
+      className={`group inline-flex items-center rounded-full font-semibold tracking-tight transition-[background-color,color,box-shadow] duration-300 ${sz.pill} ${styles[variant]} ${className}`}
     >
       <span className="relative block overflow-hidden">
         <motion.span className="block" variants={{ hover: { y: '-110%' } }} transition={{ duration: 0.4, ease }}>
@@ -135,12 +146,12 @@ export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 
           {children}
         </motion.span>
       </span>
-      <span className={`relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ${tile[variant]}`}>
+      <span className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full transition-colors duration-300 ${sz.tile} ${tile[variant]}`}>
         <motion.span variants={{ hover: { x: 18, y: -18 } }} transition={{ duration: 0.35, ease }}>
-          <ArrowUpRight size={17} />
+          <ArrowUpRight size={sz.icon} strokeWidth={2.4} />
         </motion.span>
         <motion.span className="absolute" initial={{ x: -18, y: 18 }} variants={{ hover: { x: 0, y: 0 } }} transition={{ duration: 0.35, ease }}>
-          <ArrowUpRight size={17} />
+          <ArrowUpRight size={sz.icon} strokeWidth={2.4} />
         </motion.span>
       </span>
     </motion.a>

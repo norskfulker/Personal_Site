@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { CTAButton, SplitWords, Video } from '../components/motion';
-import { ease } from '../lib/anim';
+import { ease, scrollToId } from '../lib/anim';
 import { PITCH, videos } from '../data/content';
 
 const Hero = ({ ready }) => {
@@ -43,11 +43,14 @@ const Hero = ({ ready }) => {
         </motion.div>
 
         <motion.div style={{ y: textY, opacity: textOpacity }} className="container-x relative flex h-full flex-col justify-between pb-10 pt-32 md:pb-14 md:pt-40">
-          <h1 className="h-display max-w-5xl text-[13vw] text-white sm:text-7xl md:text-8xl lg:text-[7.5rem]">
-            <span className="block text-white/55">
-              {ready && <SplitWords text="Market it. Advise it." animateOnMount />}
+          <h1 className="h-display max-w-5xl text-[15vw] text-white sm:text-7xl md:text-[5.5rem] lg:text-[6.5rem]">
+            <span className="block">
+              {ready && <SplitWords text="Market it." animateOnMount />}
             </span>
             <span className="block">
+              {ready && <SplitWords text="Advise it." animateOnMount delay={0.1} />}
+            </span>
+            <span className="block text-aqua">
               {ready && <SplitWords text="Audit it." animateOnMount delay={0.2} />}
             </span>
           </h1>
@@ -62,13 +65,20 @@ const Hero = ({ ready }) => {
               <p className="mb-8 text-lg leading-relaxed text-white/75 md:text-xl">
                 {PITCH}
               </p>
-              <div className="border-t border-white/15 pt-8">
-                <CTAButton />
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/15 pt-8">
+                <CTAButton variant="aqua" size="lg" />
+                <button
+                  onClick={() => scrollToId('pricing')}
+                  className="text-[15px] font-semibold text-white underline decoration-white/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-aqua"
+                >
+                  See pricing
+                </button>
               </div>
+              <p className="mt-4 text-sm text-white/55">Free. 15 minutes. No obligation.</p>
             </motion.div>
 
             <motion.a
-              href="#about"
+              href="#services"
               style={{ y: cardY }}
               initial={{ opacity: 0, scale: 0.85, y: 40 }}
               animate={ready ? { opacity: 1, scale: 1 } : {}}
@@ -81,7 +91,7 @@ const Hero = ({ ready }) => {
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" />
               <div className="absolute inset-x-4 bottom-4 flex items-center justify-between text-sm text-white">
-                <span>See how we work</span>
+                <span>See what we do</span>
                 <motion.span variants={{ hover: { scale: 1.15 } }} className="grid h-9 w-9 place-items-center rounded-full bg-white/25">
                   <Play size={14} fill="currentColor" />
                 </motion.span>

@@ -29,11 +29,13 @@ export const images = {
   mumbai: img('1567157577867-05ccb1388e66', 1600),
 };
 
+// In page order, so the active-section highlight moves left to right as you scroll.
 export const navLinks = [
-  { name: 'About', id: 'about' },
   { name: 'Services', id: 'services' },
+  { name: 'Who we help', id: 'who' },
+  { name: 'Pricing', id: 'pricing' },
+  { name: 'About', id: 'about' },
   { name: 'Work', id: 'work' },
-  { name: 'Approach', id: 'approach' },
   { name: 'FAQ', id: 'faq' },
 ];
 
@@ -64,7 +66,7 @@ export const services = [
       'Personal and corporate branding',
       'Pre-launch campaigns',
     ],
-    pricing: 'Monthly retainer. Ad spend billed separately.',
+    pricing: 'Included in the retainer. Ad spend billed separately.',
     image: img('1504868584819-f8e8b4b6d7e3', 900),
   },
   {
@@ -74,7 +76,7 @@ export const services = [
       'Startups: business validation, market research, go-to-market, investor documents',
       'Government: project and policy advisory, proposal support, process reviews',
     ],
-    pricing: 'Fixed-scope packages or day rate.',
+    pricing: 'Included in the retainer.',
     image: img('1542744173-8e7e53415bb0', 900),
   },
   {
@@ -85,10 +87,59 @@ export const services = [
       'Code, security, process and compliance audits',
       'Risk report ranked high / medium / low, plus a fix plan',
     ],
-    pricing: 'Fixed fee per audit.',
+    pricing: 'Included in the retainer.',
     image: img('1555066931-4365d14bab8c', 900),
   },
 ];
+
+// Pricing set by the owner (Oct 2026): one flat monthly retainer covers all three services.
+// "Double-digit revenue growth" is the owner's stated aim: keep it worded as a goal, never a guarantee.
+export const retainer = {
+  price: '$4,500',
+  unit: 'per month',
+  summary: 'One flat retainer. All three services. One team that already knows your business.',
+  terms: ['Ad spend billed separately, at cost, straight to the platforms', 'Scope and priorities agreed in writing before the first invoice'],
+  includes: [
+    {
+      title: 'Grow revenue',
+      body: 'Paid ads on Meta, Google and LinkedIn, funnels, landing pages and tracking, run towards double-digit revenue growth for your business or your personal brand.',
+    },
+    {
+      title: 'Know before the news does',
+      body: 'Market, competitor and sector intelligence, read and summarised for you, so you hear what matters before it becomes a headline.',
+    },
+    {
+      title: 'Ship better products',
+      body: 'Architecture and tech-stack advice, build vs buy, vendor selection, and code and security audits with a ranked risk report and fix plan.',
+    },
+    {
+      title: 'Validate before you spend',
+      body: 'Complete business validation: market research, customer evidence, go-to-market plans and investor documents.',
+    },
+    {
+      title: 'Build the brand',
+      body: 'Personal and corporate branding and pre-launch campaigns, so people know your name before you need them to.',
+    },
+    {
+      title: 'Open the right doors',
+      body: 'Introductions from our network to the people your next move depends on.',
+    },
+    {
+      title: 'Government & public sector',
+      body: 'Project and policy advisory, proposal support and process reviews.',
+    },
+    {
+      title: 'Reports you can act on',
+      body: 'Weekly numbers, plain-language findings and a short list of next moves. No hundred-page decks.',
+    },
+  ],
+  // Why a retainer instead of three separate contracts.
+  why: [
+    { title: 'One team, full context', body: 'No re-briefing three vendors. Marketing data shapes strategy, and audits shape the build.' },
+    { title: 'Predictable cost', body: 'One flat fee. No hourly meter, no change orders, no surprise invoices.' },
+    { title: 'Work that compounds', body: 'Every month builds on the last, instead of starting over with each new project.' },
+  ],
+};
 
 export const values = [
   { title: 'Your goals first', body: 'Every plan starts with your numbers, your market and your runway. Never a template.' },
@@ -238,8 +289,8 @@ export const facts = [
 
 // The 4 FAQ questions from the owner brief.
 export const faqs = [
-  { q: 'Can we hire you for one service only?', a: 'Yes. Each service stands on its own. Many clients start with one and add others later.' },
-  { q: 'Do you work with small budgets?', a: `Yes. Advisory comes as fixed-scope packages or a day rate, audits are a fixed fee, and marketing is a monthly retainer with ad spend billed separately. Prices: ${TBC}.` },
+  { q: 'Can we hire you for one service only?', a: 'Yes. The retainer covers all three services, and you decide where the effort goes each month. Point it at the one that matters most right now.' },
+  { q: 'Do you work with small budgets?', a: 'Our pricing is one flat retainer of $4,500 a month, with ad spend billed separately. If that does not fit yet, the first 15-minute call is free and we will tell you plainly.' },
   { q: 'Do you give legal or tax advice?', a: 'No. Advisory is practical guidance, not legal, tax or financial advice. We will tell you when you need a lawyer or an accountant.' },
   { q: 'How fast can we start?', a: `Book a free 15-minute call. If we are a fit, we send a scope and a start date. Typical turnaround: ${TBC}.` },
 ];

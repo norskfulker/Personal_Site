@@ -22,12 +22,22 @@
     @apply mx-auto w-full max-w-[1280px] px-5 md:px-8;
   }
 
+  /* The site's one card: white, rounded, with a soft layered shadow that deepens on hover. */
+  .card {
+    @apply relative rounded-[1.75rem] bg-white ring-1 ring-ink/[0.04] transition-[box-shadow,transform] duration-500;
+    box-shadow: 0 1px 2px rgba(10, 16, 36, 0.04), 0 12px 32px -12px rgba(10, 16, 36, 0.14), 0 32px 64px -32px rgba(10, 16, 36, 0.18);
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 2px 4px rgba(10, 16, 36, 0.05), 0 20px 44px -14px rgba(10, 16, 36, 0.22), 0 48px 90px -36px rgba(36, 80, 255, 0.35);
+  }
+
   .h-display {
-    @apply font-normal tracking-tightest leading-[0.98];
+    @apply font-bold tracking-tightest leading-[0.95];
   }
 
   .h-section {
-    @apply text-4xl md:text-6xl font-normal tracking-tightest leading-[1.02];
+    @apply text-4xl md:text-6xl font-semibold tracking-tightest leading-[1];
   }
 }
 

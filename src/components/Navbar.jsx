@@ -5,16 +5,40 @@ import { CTA_LABEL, navLinks } from '../data/content';
 import { CTAButton } from './motion';
 import { ease, scrollToId } from '../lib/anim';
 
+// The section whose box crosses a line ~35% down the viewport is the one you are reading.
+const useActiveSection = (ids) => {
+  const [active, setActive] = useState(null);
+  useEffect(() => {
+    const seen = new Map();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => seen.set(e.target.id, e.isIntersecting));
+        setActive(ids.find((id) => seen.get(id)) ?? null);
+      },
+      { rootMargin: '-35% 0px -64% 0px' },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [ids]);
+  return active;
+};
+
+const sectionIds = navLinks.map((l) => l.id);
+
 const Navbar = () => {
   const { scrollY } = useScroll();
   const [onHero, setOnHero] = useState(true);
-  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(null);
+  const active = useActiveSection(sectionIds);
+  // Hover wins while the pointer is on the menu; otherwise the pill rests on the section in view.
+  const marked = hovered ?? active;
 
   useMotionValueEvent(scrollY, 'change', (y) => {
-    const prev = scrollY.getPrevious() ?? 0;
     setOnHero(y < window.innerHeight * 0.85);
-    setHidden(y > 300 && y > prev && !open);
   });
 
   useEffect(() => {
@@ -34,8 +58,8 @@ const Navbar = () => {
     <>
       <motion.header
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: hidden ? -110 : 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease, delay: hidden ? 0 : 0.2 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease, delay: 0.2 }}
         className="fixed inset-x-0 top-0 z-50 px-3 pt-3"
       >
         <nav
@@ -47,22 +71,35 @@ const Navbar = () => {
             <img src={Logo} alt="Srikanta Magaji" className={`h-5 w-auto transition duration-500 md:h-6 ${dark ? 'brightness-0 invert' : ''}`} />
           </button>
 
-          <ul className="hidden items-center gap-1 lg:flex">
-            {navLinks.map((l) => (
-              <li key={l.id}>
-                <button
-                  onClick={() => go(l.id)}
-                  className={`group relative px-4 py-2 text-[14px] transition-colors ${dark ? 'text-white/80 hover:text-white' : 'text-slate hover:text-ink'}`}
-                >
-                  {l.name}
-                  <span className={`absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 ${dark ? 'bg-white' : 'bg-ink'}`} />
-                </button>
-              </li>
-            ))}
+          <ul className="hidden items-center gap-0.5 lg:flex" onMouseLeave={() => setHovered(null)}>
+            {navLinks.map((l) => {
+              const on = marked === l.id;
+              return (
+                <li key={l.id}>
+                  <button
+                    onClick={() => go(l.id)}
+                    onMouseEnter={() => setHovered(l.id)}
+                    aria-current={active === l.id ? 'true' : undefined}
+                    className={`relative px-4 py-2 text-[14px] font-medium transition-colors duration-300 ${
+                      on ? (dark ? 'text-ink' : 'text-white') : dark ? 'text-white/80 hover:text-white' : 'text-slate hover:text-ink'
+                    }`}
+                  >
+                    {on && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        transition={{ type: 'spring', stiffness: 420, damping: 36 }}
+                        className={`absolute inset-0 rounded-full ${dark ? 'bg-white' : 'bg-ink'}`}
+                      />
+                    )}
+                    <span className="relative">{l.name}</span>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="flex items-center gap-2">
-            <CTAButton className="hidden !py-1.5 !text-[14px] md:inline-flex" variant={dark ? 'light' : 'primary'}>
+            <CTAButton className="hidden !py-1.5 !text-[14px] md:inline-flex" variant={dark ? 'aqua' : 'primary'}>
               {CTA_LABEL}
             </CTAButton>
             <button
@@ -95,7 +132,7 @@ const Navbar = () => {
                     exit={{ y: '100%' }}
                     transition={{ duration: 0.6, ease, delay: 0.15 + i * 0.05 }}
                     onClick={() => go(l.id)}
-                    className="text-5xl tracking-tightest text-white"
+                    className={`text-5xl font-semibold tracking-tightest ${active === l.id ? 'text-aqua' : 'text-white'}`}
                   >
                     {l.name}
                   </motion.button>
@@ -103,7 +140,7 @@ const Navbar = () => {
               ))}
             </ul>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5 } }} exit={{ opacity: 0 }}>
-              <CTAButton variant="light" />
+              <CTAButton variant="aqua" size="lg" />
             </motion.div>
           </motion.div>
         )}

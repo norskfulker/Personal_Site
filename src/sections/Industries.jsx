@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Eyebrow, SplitWords } from '../components/motion';
+import { CTAButton, Eyebrow, Reveal, SplitWords } from '../components/motion';
 import { ease } from '../lib/anim';
 import { industries } from '../data/content';
 
@@ -14,7 +14,7 @@ const Marquee = () => {
         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
       >
         {row.map((ind, i) => (
-          <span key={i} className="flex items-center gap-12 whitespace-nowrap text-4xl tracking-tightest text-ink/80 md:text-6xl">
+          <span key={i} className="flex items-center gap-12 whitespace-nowrap text-4xl font-bold tracking-tightest text-ink md:text-6xl">
             {ind.name}
             <span className="h-3 w-3 rounded-full bg-gradient-to-br from-royal to-aqua" />
           </span>
@@ -29,7 +29,7 @@ const Industries = () => {
   const current = industries[active];
 
   return (
-    <section className="bg-white py-28 md:py-40">
+    <section id="who" className="bg-white py-24 md:py-36">
       <div className="container-x mb-14">
         <Eyebrow>Who we work with</Eyebrow>
         <h2 className="h-section mt-6 max-w-3xl">
@@ -40,25 +40,31 @@ const Industries = () => {
       <Marquee />
 
       <div className="container-x mt-16 grid gap-10 md:grid-cols-12">
-        <ul className="md:col-span-5">
-          {industries.map((ind, i) => (
-            <li key={ind.name}>
-              <button
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-                onClick={() => setActive(i)}
-                className="group flex w-full items-center justify-between border-b border-line py-5 text-left"
-              >
-                <span className={`text-2xl tracking-tight transition-colors duration-300 md:text-3xl ${active === i ? 'text-ink' : 'text-ink/35'}`}>{ind.name}</span>
-                <motion.span
-                  animate={{ scale: active === i ? 1 : 0, opacity: active === i ? 1 : 0 }}
-                  transition={{ duration: 0.4, ease }}
-                  className="h-2.5 w-2.5 rounded-full bg-royal"
-                />
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className="md:col-span-5">
+          <ul>
+            {industries.map((ind, i) => (
+              <li key={ind.name}>
+                <button
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  onClick={() => setActive(i)}
+                  className="group flex w-full items-center justify-between border-b border-line py-5 text-left"
+                >
+                  <span className={`text-2xl font-semibold tracking-tight transition-colors duration-300 md:text-3xl ${active === i ? 'text-ink' : 'text-ink/35'}`}>{ind.name}</span>
+                  <motion.span
+                    animate={{ scale: active === i ? 1 : 0, opacity: active === i ? 1 : 0 }}
+                    transition={{ duration: 0.4, ease }}
+                    className="h-2.5 w-2.5 rounded-full bg-royal"
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
+          <Reveal className="mt-10">
+            <p className="mb-5 text-lg font-medium text-ink">Sound like you? Tell us what you are working on.</p>
+            <CTAButton size="lg" />
+          </Reveal>
+        </div>
 
         <div className="relative min-h-[420px] overflow-hidden rounded-3xl bg-navy-900 md:col-span-7">
           {/* Every image is mounted (and downloaded) up front, so hovering only crossfades: no network wait. */}

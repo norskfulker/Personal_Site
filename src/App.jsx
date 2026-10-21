@@ -14,6 +14,9 @@ import Testimonials from './sections/Testimonials';
 import Approach from './sections/Approach';
 import Difference from './sections/Difference';
 import FAQ from './sections/FAQ';
+import Pricing from './sections/Pricing';
+import StickyCTA from './components/StickyCTA';
+import Footer from './components/Footer';
 import Contact from './sections/Contact';
 
 const ScrollProgress = () => {
@@ -32,18 +35,21 @@ function App() {
       <Navbar />
       <main>
         <Hero ready={ready} />
+        <Services />
+        <Industries />
+        <Pricing />
         <About />
         <ZoomReel />
-        <Services />
         <Values />
         <Work />
-        <Industries />
         <Testimonials />
         <Approach />
         <Difference />
         <FAQ />
         <Contact />
       </main>
+      <Footer />
+      <StickyCTA />
     </SmoothScroll>
   );
 }
