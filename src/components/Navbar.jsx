@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Logo from '../assets/Logo.svg';
-import { navLinks } from '../data/content';
+import { CTA_LABEL, navLinks } from '../data/content';
 import { CTAButton } from './motion';
 import { ease, scrollToId } from '../lib/anim';
 
@@ -63,7 +63,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-2">
             <CTAButton className="hidden !py-1.5 !text-[14px] md:inline-flex" variant={dark ? 'light' : 'primary'}>
-              Book a Consultation
+              {CTA_LABEL}
             </CTAButton>
             <button
               onClick={() => setOpen((o) => !o)}
@@ -103,7 +103,7 @@ const Navbar = () => {
               ))}
             </ul>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5 } }} exit={{ opacity: 0 }}>
-              <CTAButton variant="light">Book a Consultation</CTAButton>
+              <CTAButton variant="light" />
             </motion.div>
           </motion.div>
         )}

@@ -17,7 +17,7 @@ const FAQ = () => {
             <SplitWords text="Your commonly asked questions" />
           </h2>
           <Reveal delay={0.2} className="mt-8">
-            <p className="mb-8 max-w-sm text-slate">Can’t find what you’re looking for? Send a note and I’ll reply personally.</p>
+            <p className="mb-8 max-w-sm text-slate">Can’t find your answer? Ask us on a free 15-minute call.</p>
             <CTAButton variant="ghost">Ask a question</CTAButton>
           </Reveal>
         </div>

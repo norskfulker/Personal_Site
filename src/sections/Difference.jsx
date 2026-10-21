@@ -18,7 +18,7 @@ const Difference = () => (
       <div className="mx-auto mb-16 max-w-3xl text-center">
         <Eyebrow className="justify-center">The Difference</Eyebrow>
         <h2 className="h-section mt-6">
-          <SplitWords text="Why leaders choose an independent advisor" />
+          <SplitWords text="Why teams choose us" />
         </h2>
       </div>
 
@@ -30,7 +30,7 @@ const Difference = () => (
           transition={{ duration: 0.9, ease }}
           className="rounded-3xl bg-mist p-8 md:p-12"
         >
-          <h3 className="text-2xl tracking-tight text-slate">Typical consultancies</h3>
+          <h3 className="text-2xl tracking-tight text-slate">Typical agencies</h3>
           <p className="mt-3 text-slate">Many engagements deliver recommendations, then fall short during implementation.</p>
           <motion.ul variants={list} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-10 space-y-4">
             {comparison.others.map((t) => (
@@ -54,8 +54,8 @@ const Difference = () => (
             animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0.9, 0.6] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <h3 className="relative text-2xl tracking-tight">Working with me</h3>
-          <p className="relative mt-3 text-white/75">Strategic expertise paired with hands-on execution, for measurable and durable progress.</p>
+          <h3 className="relative text-2xl tracking-tight">Working with us</h3>
+          <p className="relative mt-3 text-white/75">Strategy and execution from one team, measured by real results.</p>
           <motion.ul variants={list} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mt-10 space-y-4">
             {comparison.me.map((t) => (
               <motion.li key={t} variants={item} className="flex items-start gap-3">

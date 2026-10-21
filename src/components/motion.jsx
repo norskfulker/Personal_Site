@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate, motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { CONTACT_URL } from '../data/content';
+import { CONTACT_URL, CTA_LABEL } from '../data/content';
 import { ease } from '../lib/anim';
 
 
@@ -107,7 +107,7 @@ export const Eyebrow = ({ children, light = false, className = '' }) => (
 );
 
 // Pill button with an arrow tile that slides on hover, like the Framer template.
-export const CTAButton = ({ children = 'Book a Consultation', href = CONTACT_URL, variant = 'primary', className = '' }) => {
+export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 'primary', className = '' }) => {
   const styles = {
     primary: 'bg-royal text-white shadow-[0_10px_40px_-10px_rgba(36,80,255,0.8)] hover:bg-royal-600',
     light: 'bg-white text-ink hover:bg-royal-100',

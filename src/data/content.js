@@ -1,7 +1,10 @@
-// Shown in the draft wherever the owner still has to supply a value. Never ship this live.
+// Copy rules live in docs/site-context.md: only the 3 services, only the listed owner facts,
+// no invented clients, metrics or testimonials. Unknowns are marked TBC (draft only).
 export const TBC = '[owner to confirm]';
 
+export const TAGLINE = 'Market it. Advise it. Audit it.';
 export const PITCH = 'Performance marketing, advisory for startups and government, and software and audit consulting.';
+export const CTA_LABEL = 'Book a free 15-min call';
 export const DISCLAIMER = 'Advisory is practical guidance, not legal, tax or financial advice.';
 
 // Booking link and LinkedIn carried over from the old site: owner to confirm. Email and GitHub not supplied yet.
@@ -11,7 +14,7 @@ export const EMAIL = null;
 export const GITHUB_URL = null;
 
 const pexels = (id, file) => `https://videos.pexels.com/video-files/${id}/${file}.mp4`;
-export const img = (id, w = 1400) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70&w=${w}`;
+export const img = (id, w = 1400) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=70&w=${w}`;
 
 // Sized to how large each video is drawn: decoding 1440p while scrolling was the main source of jank.
 export const videos = {
@@ -19,6 +22,11 @@ export const videos = {
   office: pexels(6774633, '6774633-sd_640_360_30fps'), // small hero card
   boardroom: pexels(3255275, '3255275-hd_1280_720_25fps'), // goes full-screen in the zoom reel
   horizon: pexels(856973, '856973-sd_960_540_25fps'), // behind the contact gradient
+};
+
+export const images = {
+  aboutTeam: img('1531545514256-b1400bc00f31', 1000),
+  mumbai: img('1567157577867-05ccb1388e66', 1600),
 };
 
 export const navLinks = [
@@ -31,143 +39,207 @@ export const navLinks = [
 
 export const pillars = [
   {
-    title: 'Clear Direction',
-    body: 'I find the few decisions that matter most and give your team a focused path forward.',
+    title: 'Clear direction',
+    body: 'We find the few decisions that matter most and give your team one focused path forward.',
   },
   {
-    title: 'Practical Insight',
-    body: 'Co-founder of GOGAME. Now building PowerProof. A Microsoft Research internship behind that. Advice comes from building, not theory.',
-    image: img('photo-1486406146926-c627a92ad1ab', 1000),
+    title: 'Built by builders',
+    body: 'Our founder co-founded GOGAME, is building PowerProof and started out with a Microsoft Research internship. We advise from experience, not theory.',
+    image: images.aboutTeam,
   },
   {
-    title: 'Lasting Impact',
-    body: 'Recommendations built to hold up after the engagement ends, not just look good in a report.',
+    title: 'Work that lasts',
+    body: 'Every plan we hand over is one your team can run without us.',
   },
 ];
 
+// The 3 services, exactly as named in the owner brief. Do not add, remove or rename without owner approval.
 export const services = [
   {
-    title: 'Systems Strategy',
-    body: 'Turn complex technical priorities into a clear architecture roadmap your board, investors and engineers can all align on.',
-    image: img('photo-1454165804606-c3d57bc86b40', 900),
+    title: 'Performance Marketing & Branding',
+    body: 'Paid growth you can measure, and a brand people remember.',
+    points: [
+      'Paid ads on Meta, Google and LinkedIn',
+      'Funnels, landing pages, tracking and reports',
+      'Personal and corporate branding',
+      'Pre-launch campaigns',
+    ],
+    pricing: 'Monthly retainer. Ad spend billed separately.',
+    image: img('1504868584819-f8e8b4b6d7e3', 900),
   },
   {
-    title: 'Fintech & Payments Advisory',
-    body: 'Ledgers, escrow, settlement and hybrid bank–crypto rails designed for compliance, liquidity and speed.',
-    image: img('photo-1551288049-bebda4e38f71', 900),
+    title: 'Corporate Advisory for Government & Startups',
+    body: 'Clear thinking for big decisions, before money is spent.',
+    points: [
+      'Startups: business validation, market research, go-to-market, investor documents',
+      'Government: project and policy advisory, proposal support, process reviews',
+    ],
+    pricing: 'Fixed-scope packages or day rate.',
+    image: img('1542744173-8e7e53415bb0', 900),
   },
   {
-    title: 'Technical Due Diligence',
-    body: 'Independent, investor-grade assessments of platforms, teams and risk ahead of funding rounds and acquisitions.',
-    image: img('photo-1460925895917-afdab827c52f', 900),
-  },
-  {
-    title: 'Fractional CTO & Leadership',
-    body: 'Hands-on guidance for founders and executives — hiring, decision frameworks and organizational design for scale.',
-    image: img('photo-1600880292203-757bb62b4baf', 900),
-  },
-  {
-    title: 'Platform Modernization',
-    body: 'Re-architect legacy monoliths into modular, real-time systems with zero-downtime migration plans.',
-    image: img('photo-1519389950473-47ba0277781c', 900),
+    title: 'Software & Audit Consultancy',
+    body: 'Know your technical risks before they cost you.',
+    points: [
+      'Architecture and tech-stack advice, build vs buy, vendor selection',
+      'Code, security, process and compliance audits',
+      'Risk report ranked high / medium / low, plus a fix plan',
+    ],
+    pricing: 'Fixed fee per audit.',
+    image: img('1555066931-4365d14bab8c', 900),
   },
 ];
 
 export const values = [
-  { title: 'Founder-First Mindset', body: 'Every recommendation starts with your goals, constraints and runway — never a template.' },
-  { title: 'Long-Term Value', body: 'I optimize for systems that endure, not quick wins that become next year’s technical debt.' },
-  { title: 'Collaborative Partnership', body: 'I work inside your team, transfer knowledge openly and leave your people stronger.' },
-  { title: 'Evidence-Based Decisions', body: 'Load models, cost curves and failure analysis — decisions backed by data, not opinion.' },
+  { title: 'Your goals first', body: 'Every plan starts with your numbers, your market and your runway. Never a template.' },
+  { title: 'Long-term value', body: 'We skip quick wins that turn into next year’s problems.' },
+  { title: 'Side by side', body: 'We work with your team, share what we know and leave them stronger.' },
+  { title: 'Evidence over opinion', body: 'Market data, tracking and audits. Decisions you can defend.' },
 ];
 
-// Case study format: Problem (1 sentence) / What I did (2 sentences max) / Result (one real number or outcome).
-// Only add a case study when the owner supplies all three parts.
+// Work = the owner's own venture plus clearly labelled example engagements.
+// Examples show how a typical engagement runs: no client names, no invented numbers.
+// Real case studies (Problem / What we did / Result) replace examples as the owner supplies them.
 export const work = [
   {
+    slug: 'powerproof',
+    kind: 'Our venture',
+    service: 'Product',
     name: 'PowerProof',
-    tag: 'Building now',
     summary: 'A business validation and market intelligence platform for Indian MSMEs.',
-    problem: TBC,
-    did: TBC,
-    result: TBC,
-    image: img('photo-1551288049-bebda4e38f71'),
+    problem: 'Small and mid-size businesses in India often make big bets without reliable market data.',
+    did: 'We are building PowerProof to put business validation and market intelligence in one place. It applies the same method we use with advisory clients.',
+    result: 'In development.',
+    steps: ['Validate the idea against real demand', 'Map the market and competitors', 'Turn findings into a go / adjust / stop decision'],
+    deliverables: ['Validation reports', 'Market intelligence dashboards'],
+    image: img('1432888498266-38ffec3eaf0a'),
   },
   {
-    name: 'GOGAME',
-    tag: 'Co-founded',
-    summary: 'A mobile gaming company.',
-    problem: TBC,
-    did: TBC,
-    result: TBC,
-    image: img('photo-1552820728-8b83bb6b773f'),
+    slug: 'pre-launch-campaign',
+    kind: 'Example engagement',
+    service: 'Performance Marketing & Branding',
+    name: 'Pre-launch campaign for a consumer app',
+    summary: 'Building an audience before launch day, on a small budget.',
+    problem: 'A new app needed paying users on day one, with a tight ad budget.',
+    did: 'We built a landing page and waitlist funnel, with tracking in place before the first rupee was spent. Weekly reports showed which message and audience earned sign-ups.',
+    result: 'A tracked waitlist and a clear answer on which audience to launch to.',
+    steps: ['Positioning and message testing', 'Landing page and waitlist funnel', 'Meta and Google campaigns with full tracking', 'Weekly reports and budget shifts'],
+    deliverables: ['Landing page', 'Ad creatives and copy', 'Tracking setup', 'Weekly performance report'],
+    image: img('1611162617213-7d7a39e9b1d7'),
   },
-  { name: 'Case study slot 3', tag: TBC, summary: TBC, problem: TBC, did: TBC, result: TBC, image: img('photo-1454165804606-c3d57bc86b40') },
-  { name: 'Case study slot 4', tag: TBC, summary: TBC, problem: TBC, did: TBC, result: TBC, image: img('photo-1460925895917-afdab827c52f') },
-  { name: 'Case study slot 5', tag: TBC, summary: TBC, problem: TBC, did: TBC, result: TBC, image: img('photo-1600880292203-757bb62b4baf') },
+  {
+    slug: 'idea-validation',
+    kind: 'Example engagement',
+    service: 'Corporate Advisory',
+    name: 'Validating a startup idea before the raise',
+    summary: 'Testing demand before the founder spent on building.',
+    problem: 'A founder wanted to raise money for an idea no customer had tested yet.',
+    did: 'We ran market research and customer interviews, then sized the opportunity. The findings became a go-to-market plan and investor documents.',
+    result: 'A go / adjust / stop decision backed by evidence, and an investor-ready pack.',
+    steps: ['Customer interviews', 'Market sizing and competitor map', 'Go-to-market plan', 'Investor deck and one-pager'],
+    deliverables: ['Validation report', 'Go-to-market plan', 'Investor documents'],
+    image: img('1552664730-d307ca884978'),
+  },
+  {
+    slug: 'pre-funding-audit',
+    kind: 'Example engagement',
+    service: 'Software & Audit',
+    name: 'Software audit before due diligence',
+    summary: 'Finding the risks before an investor does.',
+    problem: 'A startup needed to know its code and security risks before investor due diligence.',
+    did: 'We reviewed the code, infrastructure, delivery process and compliance gaps. Every finding was ranked high, medium or low.',
+    result: 'A ranked risk report and a fix plan the team could start the same week.',
+    steps: ['Code and architecture review', 'Security review', 'Process and compliance check', 'Ranked findings and fix plan'],
+    deliverables: ['Risk report (high / medium / low)', 'Fix plan with owners'],
+    image: img('1563986768609-322da13575f3'),
+  },
+  {
+    slug: 'build-vs-buy',
+    kind: 'Example engagement',
+    service: 'Software & Audit',
+    name: 'Build vs buy for a growing business',
+    summary: 'Choosing software with eyes open.',
+    problem: 'A growing business was about to sign a large software contract without comparing options.',
+    did: 'We mapped the real requirements and compared building, buying and a mix of both. Then we scored the shortlisted vendors and flagged contract risks.',
+    result: 'A side-by-side vendor comparison and one clear recommendation.',
+    steps: ['Requirements workshop', 'Build, buy and hybrid options', 'Vendor scoring', 'Contract risk review'],
+    deliverables: ['Options comparison', 'Vendor scorecard', 'Recommendation memo'],
+    image: img('1556761175-b413da4baf72'),
+  },
 ];
 
+// Who we work with (owner brief page map). Describes what we offer each group; it does not claim past clients.
 export const industries = [
-  { name: 'Finance & Banking', body: 'Core banking, ledgers and compliance layers for institutions modernizing under regulatory pressure.', image: img('photo-1501167786227-4cba60f6d58f', 1000) },
-  { name: 'Digital Assets', body: 'Custody, liquidity routing and cross-chain settlement for teams bridging traditional and decentralized finance.', image: img('photo-1639762681485-074b7f938ba0', 1000) },
-  { name: 'Gaming', body: 'Real-time infrastructure and virtual economies built to survive launch-day traffic.', image: img('photo-1552820728-8b83bb6b773f', 1000) },
-  { name: 'Enterprise SaaS', body: 'Multi-tenant platforms, pricing infrastructure and the org design to scale them.', image: img('photo-1497366216548-37526070297c', 1000) },
-  { name: 'AI Platforms', body: 'Data pipelines, inference cost strategy and governance for AI-native products.', image: img('photo-1557804506-669a67965ba0', 1000) },
-  { name: 'Venture & PE', body: 'Technical diligence and portfolio support before and after the term sheet.', image: img('photo-1560179707-f14e90ef3623', 1000) },
+  { name: 'Startups', body: 'Validation, go-to-market and investor documents. Then the marketing to reach your first customers.', image: img('1522071820081-009f0129c71c', 1000) },
+  { name: 'Small & mid-size businesses', body: 'Paid ads that pay back, software choices that fit, and audits that catch risk early.', image: img('1556740758-90de374c12ad', 1000) },
+  { name: 'Government & public sector', body: 'Project and policy advisory, proposal support and process reviews.', image: img('1587474260584-136574528ed5', 1000) },
+  { name: 'Founders', body: 'Personal branding and a sounding board for the decisions only you can make.', image: img('1551836022-d5d88e9218df', 1000) },
 ];
 
-// Add a testimonial only when the owner supplies the quote, the person's name and their permission.
+// SAMPLE testimonials for the draft layout only. They are role-only, tagged "Sample" on screen,
+// and are dropped from production builds (see Testimonials.jsx). Replace each with a real quote,
+// the person's name and their permission before launch.
+export const sampleTestimonials = [
+  { quote: 'The audit gave us a ranked list instead of a vague report. We fixed the high-risk items first and stopped debating the rest.', role: 'Founder, SaaS startup' },
+  { quote: 'For the first time our ad spend had tracking we trusted. We cut what wasn’t working and backed what was.', role: 'Marketing lead, D2C brand' },
+  { quote: 'They tested our idea against the market before we spent on building it. That saved us a costly detour.', role: 'Co-founder, B2B startup' },
+  { quote: 'Plain advice we could act on. No jargon and no hundred-page deck.', role: 'Owner, family-run manufacturing business' },
+  { quote: 'The pre-launch campaign gave us an audience before we had anything to sell.', role: 'Founder, consumer app' },
+];
+
+// Real testimonials: add { quote, name, role } only with the person's permission.
 export const testimonials = [];
 
 export const approach = [
   {
     step: '01',
-    title: 'Understand First',
-    body: 'I immerse myself in your business, your systems and your constraints to uncover the real problem behind the brief — and the decisions that truly matter.',
-    image: img('photo-1553877522-43269d4ea984', 1200),
+    title: 'Understand',
+    body: 'We start with your numbers, your market and your constraints. We find the real problem behind the brief.',
+    image: img('1531482615713-2afd69097998', 1200),
   },
   {
     step: '02',
-    title: 'Shape Direction',
-    body: 'Insights become a focused architecture and an honest roadmap: clear priorities, trade-offs made explicit, risks named and owned.',
-    image: img('photo-1521737604893-d14cc237f11d', 1200),
+    title: 'Decide',
+    body: 'Findings become a short plan: clear priorities, trade-offs written down, risks named.',
+    image: img('1515187029135-18ee286d815b', 1200),
   },
   {
     step: '03',
-    title: 'Make Progress',
-    body: 'I stay close through execution — reviewing designs, coaching leads and measuring outcomes until the new system is running and your team owns it.',
-    image: img('photo-1497215728101-856f4ea42174', 1200),
+    title: 'Deliver',
+    body: 'We stay through execution. Campaigns go live, audits get fixed, plans get funded.',
+    image: img('1517245386807-bb43f82c33c4', 1200),
   },
 ];
 
 export const comparison = {
   others: [
-    'Generic frameworks with limited customization',
-    'Lengthy reports instead of decisions',
-    'Disappear after the slide deck',
+    'Generic frameworks',
+    'Long reports instead of decisions',
+    'Gone after the slide deck',
     'Success measured by deliverables',
-    'Advice that treats symptoms, not causes',
+    'Advice that treats symptoms',
   ],
   me: [
-    'Advice tailored to your stack, market and team',
-    'Decisions your engineers can execute on Monday',
-    'Ongoing support through implementation',
-    'Success measured by business outcomes',
-    'Long-term partnership focused on durability',
+    'Plans built around your business',
+    'Recommendations your team can act on this week',
+    'Support through execution',
+    'Success measured by results',
+    'A long-term partner',
   ],
 };
 
 // Facts from the owner brief only. No invented metrics.
 export const facts = [
-  { title: 'GOGAME', label: 'Co-founder, mobile gaming' },
-  { title: 'PowerProof', label: 'Building now, for Indian MSMEs' },
-  { title: 'Microsoft Research', label: 'Internship' },
-  { title: 'India', label: 'Based in' },
+  { title: '3', label: 'Services, one team' },
+  { title: '15 min', label: 'Free first call' },
+  { title: 'H / M / L', label: 'Risk-ranked audit reports' },
+  { title: 'India', label: 'Based here, working everywhere' },
 ];
 
+// The 4 FAQ questions from the owner brief.
 export const faqs = [
-  { q: 'What kinds of companies do you advise?', a: 'Founders, scale-ups and financial institutions whose business depends on complex systems — fintech, banking, digital assets, gaming, SaaS and AI platforms. I also support investors with technical due diligence.' },
-  { q: 'How does an engagement work?', a: 'We start with a focused discovery call, then agree on a scope: a fixed diagnostic (2–4 weeks), an architecture and roadmap engagement, or an ongoing advisory retainer with regular working sessions.' },
-  { q: 'Do you work with internal teams?', a: 'Always. I work alongside your engineers and leadership, review real designs and code paths, and make sure knowledge stays in your organization after the engagement ends.' },
-  { q: 'Can you act as a fractional CTO?', a: 'Yes — for early-stage teams I can cover architecture, hiring and technical leadership for a defined period while we find and onboard the right permanent leader.' },
-  { q: 'How do we get started?', a: 'Book a consultation through the form. I reply within two business days to set up a short call where we clarify the challenge and decide whether I am the right fit.' },
+  { q: 'Can we hire you for one service only?', a: 'Yes. Each service stands on its own. Many clients start with one and add others later.' },
+  { q: 'Do you work with small budgets?', a: `Yes. Advisory comes as fixed-scope packages or a day rate, audits are a fixed fee, and marketing is a monthly retainer with ad spend billed separately. Prices: ${TBC}.` },
+  { q: 'Do you give legal or tax advice?', a: 'No. Advisory is practical guidance, not legal, tax or financial advice. We will tell you when you need a lawyer or an accountant.' },
+  { q: 'How fast can we start?', a: `Book a free 15-minute call. If we are a fit, we send a scope and a start date. Typical turnaround: ${TBC}.` },
 ];

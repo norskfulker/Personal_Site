@@ -47,12 +47,12 @@ const Approach = () => {
     <section id="approach" className="bg-mist pb-28 pt-28 md:pb-40 md:pt-40">
       <div className="container-x">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <Eyebrow className="justify-center">My Approach</Eyebrow>
+          <Eyebrow className="justify-center">Our Approach</Eyebrow>
           <h2 className="h-section mt-6">
-            <SplitWords text="A better way to solve hard problems" />
+            <SplitWords text="How every engagement runs" />
           </h2>
           <Reveal delay={0.2}>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-slate">Sharp thinking, practical expertise and close collaboration — three steps, no theatre.</p>
+            <p className="mx-auto mt-6 max-w-xl text-lg text-slate">Three steps. Clear owners. No surprises.</p>
           </Reveal>
         </div>
 

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Handshake, Shield, Sparkles, Target } from 'lucide-react';
 import { Eyebrow, ParallaxImage, Reveal, SplitWords } from '../components/motion';
 import { ease } from '../lib/anim';
-import { img, values } from '../data/content';
+import { images, values } from '../data/content';
 
 const icons = [Target, Shield, Handshake, Sparkles];
 
@@ -21,11 +21,11 @@ const Values = () => {
         <div className="mx-auto mb-20 max-w-3xl text-center">
           <Eyebrow light className="justify-center">Values</Eyebrow>
           <h2 className="h-section mt-6">
-            <SplitWords text="The principles that guide my work" />
+            <SplitWords text="The principles behind every engagement" />
           </h2>
           <Reveal delay={0.2}>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/65">
-              Transparency, accountability and practical thinking — so you can make smarter decisions and trust the systems you build.
+              Honest advice, clear ownership and practical thinking. That is how we earn repeat work.
             </p>
           </Reveal>
         </div>
@@ -54,13 +54,13 @@ const Values = () => {
         </div>
 
         <div className="relative mt-4 overflow-hidden rounded-3xl">
-          <ParallaxImage src={img('photo-1449157291145-7efd050a4d0e', 1600)} className="h-[70vh] min-h-[420px]" strength={14} />
+          <ParallaxImage src={images.mumbai} className="h-[70vh] min-h-[420px]" strength={14} />
           <div className="absolute inset-0 bg-gradient-to-tr from-navy-950/85 via-navy-900/30 to-transparent" />
           <motion.blockquote style={{ y: quoteY }} className="absolute bottom-10 left-8 right-8 max-w-2xl md:bottom-16 md:left-14">
             <p className="text-3xl leading-[1.1] tracking-tight md:text-5xl">
-              “Features change. <span className="font-serif italic text-aqua">Systems endure.</span>”
+              Fewer guesses. <span className="font-serif italic text-aqua">Better decisions.</span>
             </p>
-            <footer className="mt-5 text-sm text-white/60">— Srikanta Magaji</footer>
+            <footer className="mt-5 text-sm text-white/60">Our working rule.</footer>
           </motion.blockquote>
         </div>
       </div>

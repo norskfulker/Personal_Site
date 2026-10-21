@@ -35,7 +35,7 @@ const Preloader = ({ onDone }) => {
             transition={{ duration: 0.6, ease }}
             className="text-lg tracking-tight text-white/70"
           >
-            Srikanta Magaji — <span className="font-serif italic text-white">Independent Advisor</span>
+            Market it. Advise it. <span className="font-serif italic text-white">Audit it.</span>
           </motion.div>
           <motion.div exit={{ opacity: 0 }} className="text-7xl font-light tabular-nums tracking-tightest md:text-[9rem] md:leading-none">
             {count}

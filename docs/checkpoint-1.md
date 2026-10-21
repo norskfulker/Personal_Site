@@ -62,3 +62,18 @@ Files touched: index.html, src/data/content.js, src/sections/{Hero,About,ZoomRee
 9. **Contact:** is the Google Form (forms.gle/qtVcq7YDGg3kfZhT9) still the booking link? Is linkedin.com/in/srikanta01 correct? Please send your email and GitHub URL.
 10. **Placeholders still open:** prices and turnaround times, PowerProof's problem / what you did / result, whether build / DevOps is offered (currently not listed).
 11. **FAQ (M13):** the current FAQ still includes "Can you act as a fractional CTO?". Replace it with the 4 questions from Phase 2, step 6?
+
+## 4. Update (2026-10-21)
+
+Applied on request ("present it as an agency, we-voice"):
+
+- Q1 services: the 3 services from Part 1, with their bullets and pricing models.
+- Q2 tagline: the hero H1 is now "Market it. Advise it. Audit it."
+- Q3 CTA: every button now reads "Book a free 15-min call".
+- Q4 audiences: Startups, Small & mid-size businesses, Government & public sector, Founders. The copy describes what we offer each group and claims no clients.
+- Q7 quote: replaced with an unattributed line.
+- Q11 FAQ: the 4 questions from Phase 2, step 6.
+- Work: PowerProof (real venture) plus 4 example engagements. Each is clearly labelled "Example engagement", names no client and uses no numbers. Each opens a full case-study view at `#case-<slug>`.
+- Testimonials: role-only samples, tagged "Sample", shown only in the dev draft. Production builds drop them automatically, and the section stays hidden until real quotes are added to `testimonials` in content.js.
+
+Still open: Q5 name, Q6 pages, Q8 SEO title length, Q9 contact details, Q10 prices / turnaround / real case-study results.

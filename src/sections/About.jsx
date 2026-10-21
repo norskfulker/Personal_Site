@@ -12,11 +12,11 @@ const About = () => (
       <Eyebrow>About</Eyebrow>
       <ScrollRevealText
         className="mt-8 max-w-5xl text-3xl leading-[1.15] tracking-tight md:text-[3.4rem] md:leading-[1.08] md:tracking-[-0.035em]"
-        text="I help startups, growing businesses and public-sector teams market better, decide faster and build with less risk."
+        text="We help startups, growing businesses and public-sector teams market smarter, decide faster and build with less risk. One team for growth, strategy and technical due care."
       />
 
       <Reveal className="mt-12 flex flex-wrap items-center gap-6" delay={0.1}>
-        <CTAButton variant="ghost" href="#approach">How I work</CTAButton>
+        <CTAButton variant="ghost" href="#approach">How we work</CTAButton>
       </Reveal>
 
       <div className="mt-20 grid gap-4 md:grid-cols-3">

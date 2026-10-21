@@ -31,9 +31,9 @@ const Industries = () => {
   return (
     <section className="bg-white py-28 md:py-40">
       <div className="container-x mb-14">
-        <Eyebrow>Who I work best with</Eyebrow>
+        <Eyebrow>Who we work with</Eyebrow>
         <h2 className="h-section mt-6 max-w-3xl">
-          <SplitWords text="Built for high-stakes industries" />
+          <SplitWords text="Built for teams making big moves" />
         </h2>
       </div>
 

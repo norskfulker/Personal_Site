@@ -45,10 +45,10 @@ const Hero = ({ ready }) => {
         <motion.div style={{ y: textY, opacity: textOpacity }} className="container-x relative flex h-full flex-col justify-between pb-10 pt-32 md:pb-14 md:pt-40">
           <h1 className="h-display max-w-5xl text-[13vw] text-white sm:text-7xl md:text-8xl lg:text-[7.5rem]">
             <span className="block text-white/55">
-              {ready && <SplitWords text="Clear Systems," animateOnMount />}
+              {ready && <SplitWords text="Market it. Advise it." animateOnMount />}
             </span>
             <span className="block">
-              {ready && <SplitWords text="Confident Decisions" animateOnMount delay={0.15} />}
+              {ready && <SplitWords text="Audit it." animateOnMount delay={0.2} />}
             </span>
           </h1>
 
@@ -63,7 +63,7 @@ const Hero = ({ ready }) => {
                 {PITCH}
               </p>
               <div className="border-t border-white/15 pt-8">
-                <CTAButton>Book a Consultation</CTAButton>
+                <CTAButton />
               </div>
             </motion.div>
 
@@ -81,7 +81,7 @@ const Hero = ({ ready }) => {
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" />
               <div className="absolute inset-x-4 bottom-4 flex items-center justify-between text-sm text-white">
-                <span>Advisory in practice</span>
+                <span>See how we work</span>
                 <motion.span variants={{ hover: { scale: 1.15 } }} className="grid h-9 w-9 place-items-center rounded-full bg-white/25">
                   <Play size={14} fill="currentColor" />
                 </motion.span>

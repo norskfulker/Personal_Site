@@ -20,11 +20,11 @@ const ZoomReel = () => {
   return (
     <section ref={ref} className="relative h-[280vh] bg-mist">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        <motion.span style={{ x: leftX, opacity: sideOpacity }} className="absolute left-5 top-1/2 z-10 -translate-y-1/2 text-5xl tracking-tightest text-ink md:left-12 md:text-7xl">
-          Think
+        <motion.span style={{ x: leftX, opacity: sideOpacity }} className="absolute left-5 top-1/2 z-10 -translate-y-1/2 text-4xl tracking-tightest text-ink md:left-12 md:text-6xl">
+          Less noise.
         </motion.span>
-        <motion.span style={{ x: rightX, opacity: sideOpacity }} className="absolute right-5 top-1/2 z-10 -translate-y-1/2 font-serif text-5xl italic text-royal md:right-12 md:text-7xl">
-          Clearly
+        <motion.span style={{ x: rightX, opacity: sideOpacity }} className="absolute right-5 top-1/2 z-10 -translate-y-1/2 font-serif text-4xl italic text-royal md:right-12 md:text-6xl">
+          More signal.
         </motion.span>
 
         <motion.div style={{ scale }} className="absolute inset-0 overflow-hidden rounded-[2.5rem] will-change-transform">
@@ -32,10 +32,10 @@ const ZoomReel = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-900/20 to-navy-900/30" />
           <motion.div style={{ opacity: captionOpacity, y: captionY }} className="container-x absolute inset-x-0 bottom-12 text-white md:bottom-20">
             <p className="max-w-3xl text-4xl leading-[1.02] tracking-tightest md:text-7xl">
-              Advice that holds <span className="font-serif italic text-aqua">under pressure.</span>
+              Decisions you can <span className="font-serif italic text-aqua">stand behind.</span>
             </p>
             <p className="mt-6 max-w-md text-white/70">
-              Working sessions with founders, business owners and public-sector teams.
+              We sit with founders, owners and public-sector teams until the plan is clear and the work is moving.
             </p>
           </motion.div>
         </motion.div>

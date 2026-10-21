@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Clock, Lock, MapPin } from 'lucide-react';
+import { Clock, MapPin, ShieldCheck } from 'lucide-react';
 import Logo from '../assets/Logo.svg';
 import { scrollToId } from '../lib/anim';
 import { CTAButton, SplitWords, Video } from '../components/motion';
@@ -29,8 +29,8 @@ const Contact = () => {
         <div className="container-x relative pb-16 pt-32 md:pt-48">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="h-display text-5xl md:text-8xl">
-              <SplitWords text="Let’s build" />{' '}
-              <span className="font-serif italic text-aqua"><SplitWords text="what lasts." delay={0.15} /></span>
+              <SplitWords text="Let’s talk about" />{' '}
+              <span className="font-serif italic text-aqua"><SplitWords text="what’s next." delay={0.15} /></span>
             </h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ const Contact = () => {
               transition={{ duration: 0.9, ease, delay: 0.3 }}
               className="mx-auto mt-8 max-w-xl text-lg text-white/75"
             >
-              Get an outside perspective on your priorities and practical ways to turn ambition into systems that scale.
+              Fifteen minutes, no cost. Tell us what you are working on and we will tell you plainly if we can help.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -48,15 +48,15 @@ const Contact = () => {
               transition={{ duration: 0.8, ease, delay: 0.45 }}
               className="mt-10 flex justify-center"
             >
-              <CTAButton variant="light">Book a Consultation</CTAButton>
+              <CTAButton variant="light" />
             </motion.div>
           </div>
 
           <div className="mx-auto mt-20 grid max-w-4xl gap-3 sm:grid-cols-3">
             {[
-              { icon: MapPin, title: 'Based in India', sub: 'Working with clients remotely' },
-              { icon: Clock, title: 'Reply time', sub: TBC },
-              { icon: Lock, title: 'NDA-friendly', sub: TBC },
+              { icon: Clock, title: 'Free 15-min call', sub: 'No obligation' },
+              { icon: ShieldCheck, title: 'Ranked audit reports', sub: 'High, medium, low + fix plan' },
+              { icon: MapPin, title: 'Based in India', sub: 'Working with clients anywhere' },
             ].map((b, i) => (
               <motion.div
                 key={b.title}
