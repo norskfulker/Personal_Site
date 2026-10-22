@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { CONTACT_URL, CTA_LABEL } from '../data/content';
 import { ease } from '../lib/anim';
 import { palettes } from '../lib/palettes';
+import { useBooking } from './Booking';
 
 
 export const Reveal = ({ children, className = '', delay = 0, y = 32, as = 'div' }) => {
@@ -128,10 +129,16 @@ export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 
     lg: { pill: 'gap-5 py-2.5 pl-7 pr-2.5 text-base md:pl-8 md:text-[17px]', tile: 'h-11 w-11', icon: 18, shift: 44 },
   };
   const sz = sizes[size];
-  // Paths like /pricing stay in the app; anything else (the booking page) opens in a new tab.
+  // The booking link opens the scheduling dialog. Paths like /pricing stay in the app; other links open in a new tab.
+  const openBooking = useBooking();
+  const booking = href === CONTACT_URL && openBooking;
   const internal = href.startsWith('/');
-  const Comp = internal ? MotionLink : motion.a;
-  const linkProps = internal ? { to: href } : { href, target: href.startsWith('#') ? undefined : '_blank', rel: 'noreferrer' };
+  const Comp = booking ? motion.button : internal ? MotionLink : motion.a;
+  const linkProps = booking
+    ? { type: 'button', onClick: () => openBooking(), 'aria-haspopup': 'dialog' }
+    : internal
+      ? { to: href }
+      : { href, target: href.startsWith('#') ? undefined : '_blank', rel: 'noreferrer' };
   const arrow = 'absolute inset-0 grid place-items-center';
   return (
     <Comp

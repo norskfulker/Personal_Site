@@ -38,7 +38,7 @@ const AboutPage = () => {
       <PageHero
         eyebrow="About"
         title="Hi, I’m"
-        accent="Sri."
+        accent="Srikanta."
         lead="I’m a founder-consultant based in India. I co-founded GOGAME, a mobile gaming company. I’m building PowerProof, a business validation and market intelligence platform for Indian MSMEs. I started out with a Microsoft Research internship."
         aside={<Portrait />}
         blobs={palettes.warm}

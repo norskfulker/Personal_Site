@@ -1,0 +1,11 @@
+// Cloudflare Workers static assets. `npm run build` outputs to dist/; unknown paths fall back to
+// index.html so client-side routes like /pricing load directly. (Cloudflare Pages needs no config:
+// build command `npm run build`, output directory `dist`.)
+{
+  "name": "personal-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

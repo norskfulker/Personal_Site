@@ -1,18 +1,20 @@
 // Copy rules live in docs/site-context.md: only the 3 services, only the listed owner facts,
 // no invented clients, metrics or testimonials. Unknowns are marked TBC (draft only).
 export const TBC = '[owner to confirm]';
+// Placeholders show in the dev draft only; production builds leave them out (owner brief: never on a live page).
+export const DRAFT = import.meta.env.DEV;
 
-export const TAGLINE = 'Market it. Advise it. Audit it.';
+export const TAGLINE = 'Market. Advise. Audit.';
 // Hero line: says what the pitch says, in a sentence a person would actually speak.
 export const INTRO = 'I help founders and teams grow revenue, make sharper calls and ship software with fewer surprises.';
-export const PITCH = 'Performance marketing, advisory for startups and government, and software and audit consulting.';
+export const PITCH = 'Performance marketing, advisory for startups and government, and software development, design, procurement and audits.';
 export const CTA_LABEL = 'Book a free 30-min call';
 export const DISCLAIMER = 'Advisory is practical guidance, not legal, tax or financial advice.';
 
-// Booking page and LinkedIn confirmed by the owner (Oct 2026). Email and GitHub not supplied yet.
+// Booking page, LinkedIn and email confirmed by the owner (Oct 2026). GitHub not supplied yet.
 export const CONTACT_URL = 'https://cal.com/srikantamagaji/30-min-consultancy';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/srikanta01/';
-export const EMAIL = null;
+export const EMAIL = 'connect@srikantamagaji.com';
 export const GITHUB_URL = null;
 
 const pexels = (id, file) => `https://videos.pexels.com/video-files/${id}/${file}.mp4`;
@@ -44,36 +46,36 @@ export const navLinks = [
 // Per-page SEO (owner brief: titles under 60 characters, descriptions under 160).
 export const pageMeta = {
   home: {
-    title: 'Sri | Performance Marketing, Corporate Advisory and Software Audits',
-    description: 'Performance marketing and branding, advisory for startups and government, and software and audit consulting. Book a free 30-min call.',
+    title: 'Srikanta | Marketing, Advisory & Software',
+    description: 'Performance marketing, advisory for startups and government, and software development, design, procurement and audits. Book a free 30-min call.',
   },
   marketing: {
-    title: 'Performance Marketing & Branding | Sri',
+    title: 'Performance Marketing & Branding | Srikanta',
     description: 'Paid ads on Meta, Google and LinkedIn, funnels, landing pages, tracking and reports, plus personal and corporate branding. Book a free 30-min call.',
   },
   advisory: {
-    title: 'Corporate Advisory for Government & Startups | Sri',
-    description: 'Business validation, market research, go-to-market and investor documents for startups. Project, policy and proposal advisory for government.',
+    title: 'Corporate Advisory for Government & Startups | Srikanta',
+    description: 'Business validation, market research and investor documents for startups. Tenders, delivery orders, consortiums and policy advisory for government.',
   },
   software: {
-    title: 'Software & Audit Consultancy | Sri',
-    description: 'Architecture and tech-stack advice, build vs buy, vendor selection, and code, security, process and compliance audits with a ranked risk report.',
+    title: 'Software & Audit Consultancy | Srikanta',
+    description: 'Software development and DevOps, product design, procurement and vendor selection, plus code, security and compliance audits with a ranked risk report.',
   },
   pricing: {
-    title: 'Pricing: one $4,500 monthly retainer | Sri',
-    description: 'One flat $4,500 monthly retainer covering performance marketing, advisory and software audits. Ad spend billed separately. Book a free 30-min call.',
+    title: 'Pricing: one $4,500 monthly retainer | Srikanta',
+    description: 'One flat $4,500 a month for marketing, advisory and software. Ad spend and other billables are paid separately by the client. Book a free 30-min call.',
   },
   work: {
-    title: 'Work and case studies | Sri',
-    description: 'PowerProof and example engagements across performance marketing, corporate advisory and software audits. Problem, what I did, result.',
+    title: 'Work and case studies | Srikanta',
+    description: 'PowerProof and example engagements across performance marketing, corporate advisory and software. Problem, what I did, result.',
   },
   about: {
-    title: 'About Sri | Market it. Advise it. Audit it.',
-    description: 'Founder-consultant based in India. Co-founded GOGAME, building PowerProof, Microsoft Research internship. Marketing, advisory and audits.',
+    title: 'About Srikanta | Market. Advise. Audit.',
+    description: 'Founder-consultant based in India. Co-founded GOGAME, building PowerProof, Microsoft Research internship. Marketing, advisory and software.',
   },
   blog: {
-    title: 'Blog | Sri',
-    description: 'Plain notes on performance marketing, startup and government advisory, and software audits. Book a free 30-min call.',
+    title: 'Blog | Srikanta',
+    description: 'Plain notes on performance marketing, startup and government advisory, and software. Book a free 30-min call.',
   },
 };
 
@@ -106,7 +108,7 @@ export const services = [
       'Personal and corporate branding',
       'Pre-launch campaigns',
     ],
-    pricing: 'Included in the retainer. Ad spend billed separately.',
+    pricing: 'Included in the retainer. Ad spend paid separately.',
     image: img('1504868584819-f8e8b4b6d7e3', 900),
   },
   {
@@ -116,7 +118,7 @@ export const services = [
     body: 'Clear thinking for big decisions, before money is spent.',
     points: [
       'Startups: business validation, market research, go-to-market, investor documents',
-      'Government: project and policy advisory, proposal support, process reviews',
+      'Government: tender fulfilment, delivery orders, consortiums, project and policy advisory, proposals and process reviews',
     ],
     pricing: 'Included in the retainer.',
     image: img('1542744173-8e7e53415bb0', 900),
@@ -125,11 +127,12 @@ export const services = [
     slug: 'software',
     short: 'Software',
     title: 'Software & Audit Consultancy',
-    body: 'Know your technical risks before they cost you.',
+    body: 'Software designed, built, bought and checked, with fewer surprises.',
     points: [
-      'Architecture and tech-stack advice, build vs buy, vendor selection',
-      'Code, security, process and compliance audits',
-      'Risk report ranked high / medium / low, plus a fix plan',
+      'Software development and DevOps',
+      'Product and software design',
+      'Procurement: tech stack, build vs buy, vendor selection',
+      'Code, security, process and compliance audits, ranked high / medium / low with a fix plan',
     ],
     pricing: 'Included in the retainer.',
     image: img('1555066931-4365d14bab8c', 900),
@@ -137,10 +140,10 @@ export const services = [
 ];
 
 // Full service pages. Scope comes straight from the owner brief; descriptions say what the work is,
-// never what it has achieved. Government track: no claim of past government clients ([owner to confirm]).
+// never what it has achieved. Government track: the owner says what he can help with; it claims no past government clients.
 export const servicePages = {
   marketing: {
-    eyebrow: 'Market it',
+    eyebrow: 'Market',
     lead: 'Ads that are tracked from the first rupee, pages built to convert, and a brand people remember. Every week you see what worked and where the budget moves next.',
     groups: [
       { title: 'Paid ads', body: 'Campaigns on Meta, Google and LinkedIn, planned around one clear goal per campaign.' },
@@ -154,8 +157,8 @@ export const servicePages = {
     image: img('1460925895917-afdab827c52f', 1200),
   },
   advisory: {
-    eyebrow: 'Advise it',
-    lead: 'Clear thinking for big decisions, before money is spent. Two tracks: startups that need evidence before they build or raise, and public-sector teams that need projects, policy and proposals that hold up.',
+    eyebrow: 'Advise',
+    lead: 'Clear thinking for big decisions, before money is spent. Two tracks: startups that need evidence before they build or raise, and public-sector teams that need tenders, delivery orders, consortiums and policy work that hold up.',
     tracks: [
       {
         name: 'Startups',
@@ -164,7 +167,7 @@ export const servicePages = {
       },
       {
         name: 'Government',
-        points: ['Project and policy advisory', 'Proposal support', 'Process reviews'],
+        points: ['Tender fulfilment', 'Delivery orders', 'Consortiums', 'Project and policy advisory', 'Proposal support and process reviews'],
         image: img('1587474260584-136574528ed5', 1000),
       },
     ],
@@ -175,16 +178,22 @@ export const servicePages = {
       { title: 'Investor documents', body: 'Deck and one-pager built on the evidence, not on hope.' },
       { title: 'Project and policy advisory', body: 'Practical review of public-sector projects and policy options.' },
       { title: 'Proposal support and process reviews', body: 'Proposals that answer the brief, and processes checked for gaps.' },
+      { title: 'Tender fulfilment', body: 'Bids prepared against the tender’s requirements, and help meeting them once the tender is won.' },
+      { title: 'Delivery orders', body: 'Planning and tracking delivery against government delivery orders, so nothing is missed.' },
+      { title: 'Consortiums', body: 'Finding the right partners and structuring a consortium to bid for larger public projects.' },
     ],
     image: img('1542744173-8e7e53415bb0', 1200),
   },
   software: {
-    eyebrow: 'Audit it',
-    lead: 'Know your technical risks before they cost you. Advice before you choose a stack or a vendor, and audits that end in a ranked risk report and a fix plan your team can start on.',
+    eyebrow: 'Audit',
+    lead: 'Software designed, built and bought with eyes open. I develop products and run the DevOps behind them, design them before code is written, help you procure the right tools and vendors, and audit what you already have.',
     groups: [
+      { title: 'Software development', body: 'Products and internal tools built to fit your stage, team and budget.' },
+      { title: 'DevOps', body: 'Deployments, environments and monitoring set up so releases are routine, not risky.' },
+      { title: 'Product and software design', body: 'Architecture, interfaces and user flows planned before the first line of code.' },
       { title: 'Architecture and tech stack', body: 'Advice on the stack and structure that fit your stage and team.' },
       { title: 'Build vs buy', body: 'Building, buying and a mix of both, compared side by side.' },
-      { title: 'Vendor selection', body: 'Shortlists scored against your real requirements, with contract risks flagged.' },
+      { title: 'Procurement and vendor selection', body: 'Shortlists scored against your real requirements, with contract risks flagged.' },
       { title: 'Code audits', body: 'Review of code quality, structure and the parts most likely to break.' },
       { title: 'Security audits', body: 'Review of how your systems and data are exposed.' },
       { title: 'Process and compliance audits', body: 'How work ships, and where it falls short of what you must meet.' },
@@ -205,7 +214,7 @@ export const retainer = {
   price: '$4,500',
   unit: 'per month',
   summary: 'One flat retainer. All three services. One person who already knows your business.',
-  terms: ['Ad spend billed separately, at cost, straight to the platforms', 'Scope and priorities agreed in writing before the first invoice'],
+  terms: ['One flat $4,500 a month covers all three services', 'Ad spend, service records and other complementary billables are paid separately by the client'],
   includes: [
     {
       title: 'Grow revenue',
@@ -217,7 +226,7 @@ export const retainer = {
     },
     {
       title: 'Ship better products',
-      body: 'Architecture and tech-stack advice, build vs buy, vendor selection, and code and security audits with a ranked risk report and fix plan.',
+      body: 'Software development and DevOps, product design, procurement and vendor selection, and code and security audits with a ranked risk report and fix plan.',
     },
     {
       title: 'Validate before you spend',
@@ -233,7 +242,7 @@ export const retainer = {
     },
     {
       title: 'Government & public sector',
-      body: 'Project and policy advisory, proposal support and process reviews.',
+      body: 'Tender fulfilment, delivery orders, consortiums, project and policy advisory, proposals and process reviews.',
     },
     {
       title: 'Reports you can act on',
@@ -255,10 +264,10 @@ export const values = [
   { title: 'Evidence over opinion', body: 'Market data, tracking and audits. Decisions you can defend.' },
 ];
 
-// Copy is first person: this is Sri's personal site, not an agency.
+// Copy is first person: this is Srikanta's personal site, not an agency.
 // Work = the owner's own venture plus clearly labelled example engagements.
 // Examples show how a typical engagement runs: no client names, no invented numbers.
-// Real case studies (Problem / What we did / Result) replace examples as the owner supplies them.
+// Real case studies (Problem / What I did / Result) replace examples as the owner supplies them.
 export const work = [
   {
     slug: 'powerproof',
@@ -279,8 +288,8 @@ export const work = [
     service: 'Performance Marketing & Branding',
     name: 'Pre-launch campaign for a consumer app',
     summary: 'Building an audience before launch day, on a small budget.',
-    problem: 'A new app needed paying users on day one, with a tight ad budget.',
-    did: 'I built a landing page and waitlist funnel, with tracking in place before the first rupee was spent. Weekly reports showed which message and audience earned sign-ups.',
+    problem: 'A new app needs paying users on day one, with a tight ad budget.',
+    did: 'I build a landing page and waitlist funnel, with tracking in place before the first rupee is spent. Weekly reports show which message and audience earn sign-ups.',
     result: 'A tracked waitlist and a clear answer on which audience to launch to.',
     steps: ['Positioning and message testing', 'Landing page and waitlist funnel', 'Meta and Google campaigns with full tracking', 'Weekly reports and budget shifts'],
     deliverables: ['Landing page', 'Ad creatives and copy', 'Tracking setup', 'Weekly performance report'],
@@ -291,9 +300,9 @@ export const work = [
     kind: 'Example engagement',
     service: 'Corporate Advisory',
     name: 'Validating a startup idea before the raise',
-    summary: 'Testing demand before the founder spent on building.',
-    problem: 'A founder wanted to raise money for an idea no customer had tested yet.',
-    did: 'I ran market research and customer interviews, then sized the opportunity. The findings became a go-to-market plan and investor documents.',
+    summary: 'Testing demand before a founder spends on building.',
+    problem: 'A founder wants to raise money for an idea no customer has tested yet.',
+    did: 'I run market research and customer interviews, then size the opportunity. The findings become a go-to-market plan and investor documents.',
     result: 'A go / adjust / stop decision backed by evidence, and an investor-ready pack.',
     steps: ['Customer interviews', 'Market sizing and competitor map', 'Go-to-market plan', 'Investor deck and one-pager'],
     deliverables: ['Validation report', 'Go-to-market plan', 'Investor documents'],
@@ -305,9 +314,9 @@ export const work = [
     service: 'Software & Audit',
     name: 'Software audit before due diligence',
     summary: 'Finding the risks before an investor does.',
-    problem: 'A startup needed to know its code and security risks before investor due diligence.',
-    did: 'I reviewed the code, infrastructure, delivery process and compliance gaps. Every finding was ranked high, medium or low.',
-    result: 'A ranked risk report and a fix plan the team could start the same week.',
+    problem: 'A startup needs to know its code and security risks before investor due diligence.',
+    did: 'I review the code, infrastructure, delivery process and compliance gaps. Every finding is ranked high, medium or low.',
+    result: 'A ranked risk report and a fix plan the team can start the same week.',
     steps: ['Code and architecture review', 'Security review', 'Process and compliance check', 'Ranked findings and fix plan'],
     deliverables: ['Risk report (high / medium / low)', 'Fix plan with owners'],
     image: img('1563986768609-322da13575f3'),
@@ -318,8 +327,8 @@ export const work = [
     service: 'Software & Audit',
     name: 'Build vs buy for a growing business',
     summary: 'Choosing software with eyes open.',
-    problem: 'A growing business was about to sign a large software contract without comparing options.',
-    did: 'I mapped the real requirements and compared building, buying and a mix of both. Then I scored the shortlisted vendors and flagged contract risks.',
+    problem: 'A growing business is about to sign a large software contract without comparing options.',
+    did: 'I map the real requirements and compare building, buying and a mix of both. Then I score the shortlisted vendors and flag contract risks.',
     result: 'A side-by-side vendor comparison and one clear recommendation.',
     steps: ['Requirements workshop', 'Build, buy and hybrid options', 'Vendor scoring', 'Contract risk review'],
     deliverables: ['Options comparison', 'Vendor scorecard', 'Recommendation memo'],
@@ -327,11 +336,11 @@ export const work = [
   },
 ];
 
-// Who we work with (owner brief page map). Describes what we offer each group; it does not claim past clients.
+// Who I work with (owner brief page map). Describes what I offer each group; it does not claim past clients.
 export const industries = [
   { name: 'Startups', body: 'Validation, go-to-market and investor documents. Then the marketing to reach your first customers.', image: img('1522071820081-009f0129c71c', 1000) },
-  { name: 'Small & mid-size businesses', body: 'Paid ads that pay back, software choices that fit, and audits that catch risk early.', image: img('1556740758-90de374c12ad', 1000) },
-  { name: 'Government & public sector', body: 'Project and policy advisory, proposal support and process reviews.', image: img('1587474260584-136574528ed5', 1000) },
+  { name: 'Small & mid-size businesses', body: 'Paid ads that pay back, software built or bought to fit, and audits that catch risk early.', image: img('1556740758-90de374c12ad', 1000) },
+  { name: 'Government & public sector', body: 'Tender fulfilment, delivery orders, consortiums, and project and policy advisory.', image: img('1587474260584-136574528ed5', 1000) },
   { name: 'Founders', body: 'Personal branding and a sounding board for the decisions only you can make.', image: img('1551836022-d5d88e9218df', 1000) },
 ];
 
@@ -341,7 +350,7 @@ export const industries = [
 export const sampleTestimonials = [
   { quote: 'The audit gave us a ranked list instead of a vague report. We fixed the high-risk items first and stopped debating the rest.', role: 'Founder, SaaS startup' },
   { quote: 'For the first time our ad spend had tracking we trusted. We cut what wasn’t working and backed what was.', role: 'Marketing lead, D2C brand' },
-  { quote: 'Sri tested our idea against the market before we spent on building it. That saved us a costly detour.', role: 'Co-founder, B2B startup' },
+  { quote: 'Srikanta tested our idea against the market before we spent on building it. That saved us a costly detour.', role: 'Co-founder, B2B startup' },
   { quote: 'Plain advice we could act on. No jargon and no hundred-page deck.', role: 'Owner, family-run manufacturing business' },
   { quote: 'The pre-launch campaign gave us an audience before we had anything to sell.', role: 'Founder, consumer app' },
 ];
@@ -365,7 +374,7 @@ export const approach = [
   {
     step: '03',
     title: 'Deliver',
-    body: 'I stay through execution. Campaigns go live, audits get fixed, plans get funded.',
+    body: 'I stay through execution. Campaigns go live, audit findings get fixed, plans get carried out.',
     image: img('1517245386807-bb43f82c33c4', 1200),
   },
 ];
@@ -398,9 +407,9 @@ export const facts = [
 // The 4 FAQ questions from the owner brief.
 export const faqs = [
   { q: 'Can we hire you for one service only?', a: 'Yes. The retainer covers all three services, and you decide where the effort goes each month. Point it at the one that matters most right now.' },
-  { q: 'Do you work with small budgets?', a: 'My pricing is one flat retainer of $4,500 a month, with ad spend billed separately. If that does not fit yet, the first 30-minute call is free and I will tell you plainly.' },
+  { q: 'Do you work with small budgets?', a: 'My pricing is one flat retainer of $4,500 a month for all three services. Ad spend and other billables are paid separately. If that does not fit yet, the first 30-minute call is free and I will tell you plainly.' },
   { q: 'Do you give legal or tax advice?', a: 'No. Advisory is practical guidance, not legal, tax or financial advice. I will tell you when you need a lawyer or an accountant.' },
-  { q: 'How fast can we start?', a: `Book a free 30-minute call. If we are a fit, I send a scope and a start date. Typical turnaround: ${TBC}.` },
+  { q: 'How fast can we start?', a: `Book a free 30-minute call. If we are a fit, I send a scope and a start date.${DRAFT ? ` Typical turnaround: ${TBC}.` : ''}` },
 ];
 
 // Blog. Real posts go in `posts` as { slug, title, excerpt, service, date }.

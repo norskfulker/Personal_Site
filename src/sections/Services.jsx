@@ -22,7 +22,7 @@ const Services = () => (
         </div>
         <Reveal className="flex flex-col justify-end gap-6 md:col-span-4" delay={0.2}>
           <p className="text-lg text-muted">
-            Bring me in for one, or let a single retainer cover all three. Either way, you deal with the person doing the work.
+            One flat retainer covers all three. Point it at whatever moves your business most, and deal with the person doing the work.
           </p>
         </Reveal>
       </div>

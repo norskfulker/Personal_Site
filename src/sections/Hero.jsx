@@ -33,13 +33,13 @@ const Hero = () => {
             transition={{ duration: 0.8, ease }}
             className="mb-8 text-sm font-medium text-white/55"
           >
-            Srikanta Magaji · Founder-consultant, based in India
+            40X revenue in 3 years with 100+ clients
           </motion.p>
 
           <h1 className="h-display text-[17vw] sm:text-8xl md:text-[7.5rem] lg:text-[8.5rem]">
-            <span className="block">{ready && <SplitWords text="Market it." animateOnMount />}</span>
-            <span className="block">{ready && <SplitWords text="Advise it." animateOnMount delay={0.1} />}</span>
-            <span className="block">{ready && <SplitWords text="Audit it." animateOnMount delay={0.2} wordClassName="text-gradient" />}</span>
+            <span className="block">{ready && <SplitWords text="Market." animateOnMount />}</span>
+            <span className="block">{ready && <SplitWords text="Advise." animateOnMount delay={0.1} />}</span>
+            <span className="block">{ready && <SplitWords text="Audit." animateOnMount delay={0.2} wordClassName="text-gradient" />}</span>
           </h1>
 
           <motion.div
@@ -59,7 +59,6 @@ const Hero = () => {
               </Link>
             </div>
           </motion.div>
-
         </motion.div>
 
         {/* The three services as a hairline strip: a quick map of the page below. */}

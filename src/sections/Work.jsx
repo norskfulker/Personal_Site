@@ -79,7 +79,8 @@ const CaseModal = ({ item, onClose }) => {
 
   const blocks = [
     ['The challenge', item.problem],
-    ['What I did', item.did],
+    // Examples describe how a typical engagement runs, so they read in the present tense.
+    [item.kind === 'Example engagement' ? 'What I do' : 'What I did', item.did],
     ['Outcome', item.result],
   ];
 
@@ -137,7 +138,7 @@ const CaseModal = ({ item, onClose }) => {
 
           <div className="mt-10 grid gap-10 md:grid-cols-2">
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}>
-              <h4 className="text-lg font-semibold tracking-tight">How it ran</h4>
+              <h4 className="text-lg font-semibold tracking-tight">How it runs</h4>
               <ol className="mt-4 space-y-3">
                 {item.steps.map((s, i) => (
                   <li key={s} className="flex gap-4">

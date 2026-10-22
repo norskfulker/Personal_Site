@@ -13,7 +13,7 @@ const WhatIDo = () => (
       <Eyebrow>What I do</Eyebrow>
       <ScrollRevealText
         className="mt-8 max-w-5xl text-3xl font-medium leading-[1.15] tracking-[-0.03em] md:text-[3.6rem] md:leading-[1.05] md:tracking-[-0.045em]"
-        text="I help startups, growing businesses and public-sector teams market smarter, decide faster and build with less risk. One person for growth, strategy and technical due care."
+        text="I help startups, growing businesses and public-sector teams market smarter, decide faster and build with less risk. One person for growth, strategy and technical risk."
       />
 
       <div className="mt-16 grid gap-4 md:grid-cols-3">

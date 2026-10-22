@@ -108,7 +108,7 @@ const Tracks = ({ tracks }) => (
   </section>
 );
 
-// Software: what the audit deliverable looks like. Layout only, no real findings.
+// Software: what an audit deliverable looks like. Layout only, no real findings.
 const RiskReport = ({ risks }) => (
   <section className="relative overflow-hidden bg-night py-24 text-white md:py-32">
     <div className="grid-lines absolute inset-0" />

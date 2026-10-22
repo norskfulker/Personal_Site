@@ -6,14 +6,14 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 
 ### Who and why
 
-- Owner: Sri, founder-consultant, based in India.
+- Owner: Srikanta (use "Srikanta" everywhere, owner decision Oct 2026), founder-consultant, based in India.
 - Visitors: startup founders, small and mid-size businesses, government and public-sector decision makers.
 - Site goal: get visitors to book a free 30-minute call. Every page ends with that call-to-action.
 
 ### Brand
 
-- Tagline: "Market it. Advise it. Audit it."
-- Pitch: Performance marketing, advisory for startups and government, and software and audit consulting.
+- Tagline: "Market. Advise. Audit." (owner decision Oct 2026: use this form everywhere)
+- Pitch: Performance marketing, advisory for startups and government, and software development, design, procurement and audits.
 - Tone: plain, direct, confident. Short sentences. No hype.
 - Banned words: world-class, cutting-edge, synergy, revolutionary, best in India.
 
@@ -24,16 +24,18 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
    - Personal branding and corporate branding, pre-launch campaigns
 2. Corporate Advisory for Government & Startups
    - Startups: business validation, market research, go-to-market, investor documents
-   - Government: project and policy advisory, proposal support, process reviews
-3. Software & Audit Consultancy
-   - Architecture and tech-stack advice, build vs buy, vendor selection
+   - Government (what Srikanta can help with; no past government clients claimed): tender fulfilment, delivery orders, consortiums, project and policy advisory, proposal support, process reviews
+3. Software & Audit Consultancy (owner, Oct 2026: software development, design and procurement, not only audits)
+   - Software development and DevOps
+   - Product and software design
+   - Procurement: architecture and tech-stack advice, build vs buy, vendor selection
    - Code, security, process and compliance audits
    - Deliverable: risk report ranked high / medium / low, plus fix plan
 
 ### Pricing (set by owner, Oct 2026)
 
 - One flat monthly retainer: $4,500 per month, covering all three services.
-- Ad spend billed separately.
+- Ad spend, service records and other complementary billables are paid separately by the client. The flat $4,500 a month covers all 3 services.
 - What the client gets (owner's words): information faster than news, work aimed at double-digit revenue growth (business or personal), better products shipped, network access, complete business validation, plus the scope of all 3 services.
 - Revenue growth is an aim, never a guarantee.
 
@@ -66,9 +68,9 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 
 ### SEO defaults
 
-- Title: Sri | Performance Marketing, Corporate Advisory and Software Audits
-- Description: Performance marketing and branding, advisory for startups and government, and software and audit consulting. Book a free 30-min call.
-- One H1 per page. Titles under 60 characters. Descriptions under 160.
+- Title: Srikanta | Marketing, Advisory & Software
+- Description: Performance marketing, advisory for startups and government, and software development, design, procurement and audits. Book a free 30-min call.
+- One H1 per page. Titles 60 characters or fewer. Descriptions under 160.
 
 ### Rules for editing
 
@@ -95,11 +97,11 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 
 ### Placeholders the owner still must fill
 
-- Booking link, email, LinkedIn, GitHub
-- Real results for each case study
+- GitHub
 - Turnaround times (price is set: $4,500/month retainer)
-- Whether government work has actually been done (decides what the Government track may claim)
-- Whether build / DevOps is still offered (currently NOT listed)
+- Owner photo (none for now; the About page shows a monogram)
+
+Answered (Oct 2026): booking link https://cal.com/srikantamagaji/30-min-consultancy, email connect@srikantamagaji.com, LinkedIn https://www.linkedin.com/in/srikanta01/. Case studies stay as they are (PowerProof plus labelled example engagements). Government: describe what Srikanta can help with, do not claim past clients. Build / DevOps: offered as part of software.
 
 ## PART 2: AGENDA
 
