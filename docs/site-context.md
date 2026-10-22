@@ -68,6 +68,7 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 
 ### SEO defaults
 
+- Domain: https://srikantamagaji.com (confirmed Oct 2026)
 - Title: Srikanta | Marketing, Advisory & Software
 - Description: Performance marketing, advisory for startups and government, and software development, design, procurement and audits. Book a free 30-min call.
 - One H1 per page. Titles 60 characters or fewer. Descriptions under 160.

@@ -2,7 +2,8 @@
 // no invented clients, metrics or testimonials. Unknowns are marked TBC (draft only).
 export const TBC = '[owner to confirm]';
 // Placeholders show in the dev draft only; production builds leave them out (owner brief: never on a live page).
-export const DRAFT = import.meta.env.DEV;
+// `?.` keeps this file importable from Node (scripts/seo.mjs runs after the build).
+export const DRAFT = import.meta.env?.DEV ?? false;
 
 export const TAGLINE = 'Market. Advise. Audit.';
 // Hero line: says what the pitch says, in a sentence a person would actually speak.
@@ -16,6 +17,11 @@ export const CONTACT_URL = 'https://cal.com/srikantamagaji/30-min-consultancy';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/srikanta01/';
 export const EMAIL = 'connect@srikantamagaji.com';
 export const GITHUB_URL = null;
+
+// SEO. Domain confirmed by the owner (Oct 2026).
+export const SITE_URL = 'https://srikantamagaji.com';
+export const SITE_NAME = 'Srikanta Magaji';
+export const OG_IMAGE = { path: '/og-image.png', width: 1200, height: 630, alt: 'Srikanta Magaji: Market. Advise. Audit.' };
 
 const pexels = (id, file) => `https://videos.pexels.com/video-files/${id}/${file}.mp4`;
 export const img = (id, w = 1400) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=70&w=${w}`;
@@ -43,37 +49,46 @@ export const navLinks = [
   { name: 'Blog', path: '/blog' },
 ];
 
-// Per-page SEO (owner brief: titles under 60 characters, descriptions under 160).
+// Per-page SEO (owner brief: titles 60 characters or fewer, descriptions under 160).
+// `path` drives the canonical URL, Open Graph tags, the sitemap and the pre-rendered page heads.
 export const pageMeta = {
   home: {
+    path: '/',
     title: 'Srikanta | Marketing, Advisory & Software',
     description: 'Performance marketing, advisory for startups and government, and software development, design, procurement and audits. Book a free 30-min call.',
   },
   marketing: {
+    path: '/marketing',
     title: 'Performance Marketing & Branding | Srikanta',
     description: 'Paid ads on Meta, Google and LinkedIn, funnels, landing pages, tracking and reports, plus personal and corporate branding. Book a free 30-min call.',
   },
   advisory: {
+    path: '/advisory',
     title: 'Corporate Advisory for Government & Startups | Srikanta',
     description: 'Business validation, market research and investor documents for startups. Tenders, delivery orders, consortiums and policy advisory for government.',
   },
   software: {
+    path: '/software',
     title: 'Software & Audit Consultancy | Srikanta',
     description: 'Software development and DevOps, product design, procurement and vendor selection, plus code, security and compliance audits with a ranked risk report.',
   },
   pricing: {
+    path: '/pricing',
     title: 'Pricing: one $4,500 monthly retainer | Srikanta',
     description: 'One flat $4,500 a month for marketing, advisory and software. Ad spend and other billables are paid separately by the client. Book a free 30-min call.',
   },
   work: {
+    path: '/work',
     title: 'Work and case studies | Srikanta',
     description: 'PowerProof and example engagements across performance marketing, corporate advisory and software. Problem, what I did, result.',
   },
   about: {
+    path: '/about',
     title: 'About Srikanta | Market. Advise. Audit.',
     description: 'Founder-consultant based in India. Co-founded GOGAME, building PowerProof, Microsoft Research internship. Marketing, advisory and software.',
   },
   blog: {
+    path: '/blog',
     title: 'Blog | Srikanta',
     description: 'Plain notes on performance marketing, startup and government advisory, and software. Book a free 30-min call.',
   },

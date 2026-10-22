@@ -15,7 +15,8 @@ const items = posts.length ? posts : import.meta.env.DEV ? samplePosts.map((p) =
 const filters = [{ slug: 'all', short: 'All' }, ...services];
 
 const BlogPage = () => {
-  usePageMeta(pageMeta.blog);
+  // No real posts yet: keep the page out of search results until there are some (see scripts/seo.mjs).
+  usePageMeta({ ...pageMeta.blog, noindex: posts.length === 0 });
   const [filter, setFilter] = useState('all');
   const shown = items.filter((p) => filter === 'all' || p.service === filter);
 
