@@ -6,6 +6,8 @@ import { ease } from '../lib/anim';
 import { CTA_LABEL, work } from '../data/content';
 
 const HASH_PREFIX = '#case-';
+// Challenge, what I did, outcome. The outcome gets the one tint.
+const blockTints = ['bg-fog', 'bg-fog', 'bg-violet/10'];
 
 const CaseCard = ({ item, index, large, onOpen }) => {
   const ref = useRef(null);
@@ -30,18 +32,18 @@ const CaseCard = ({ item, index, large, onOpen }) => {
         className="group block w-full text-left"
         aria-label={`View case study: ${item.name}`}
       >
-        <motion.div style={{ scale: frame }} className={`relative overflow-hidden rounded-3xl will-change-transform ${large ? 'aspect-[4/3] md:aspect-[16/7]' : 'aspect-[4/3]'}`}>
+        <motion.div style={{ scale: frame }} className={`relative overflow-hidden rounded-4xl will-change-transform ${large ? 'aspect-[4/3] md:aspect-[16/7]' : 'aspect-[4/3]'}`}>
           <motion.div layoutId={`case-img-${item.slug}`} className="absolute inset-0 overflow-hidden">
             <motion.img src={item.image} alt="" loading="lazy" style={{ scale, y }} className="absolute inset-0 h-full w-full object-cover" />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-night/85 via-night/10 to-transparent" />
           <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-            <span className={`rounded-full px-3 py-1 text-xs font-medium ${item.kind === 'Our venture' ? 'bg-aqua text-navy-950' : 'bg-white/90 text-ink'}`}>{item.kind}</span>
-            <span className="rounded-full bg-navy-950/50 px-3 py-1 text-xs text-white">{item.service}</span>
+            <span className={`label rounded-full px-3 py-1.5 ${item.kind === 'My venture' ? 'bg-white text-ink' : 'bg-white text-ink'}`}>{item.kind}</span>
+            <span className="label rounded-full bg-night/50 px-3 py-1.5 text-white ring-1 ring-white/20 backdrop-blur">{item.service}</span>
           </div>
           <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-6 text-white">
             <div>
-              <h3 className="text-2xl leading-tight tracking-tight md:text-4xl md:tracking-[-0.03em]">{item.name}</h3>
+              <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] md:text-4xl md:tracking-[-0.045em]">{item.name}</h3>
               <p className="mt-2 max-w-xl text-white/75">{item.summary}</p>
             </div>
             <motion.span
@@ -53,7 +55,7 @@ const CaseCard = ({ item, index, large, onOpen }) => {
             </motion.span>
           </div>
         </motion.div>
-        <p className="mt-4 flex items-center gap-2 text-sm font-medium text-royal">
+        <p className="label mt-4 flex items-center gap-2 text-ink/60 transition-colors group-hover:text-violet">
           View case study <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
         </p>
       </motion.button>
@@ -77,14 +79,14 @@ const CaseModal = ({ item, onClose }) => {
 
   const blocks = [
     ['The challenge', item.problem],
-    ['What we did', item.did],
+    ['What I did', item.did],
     ['Outcome', item.result],
   ];
 
   return (
     <motion.div className="fixed inset-0 z-[70] flex items-end justify-center md:items-center md:p-6" role="dialog" aria-modal="true" aria-label={item.name}>
       <motion.div
-        className="absolute inset-0 bg-navy-950/70"
+        className="absolute inset-0 bg-night/75 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -99,22 +101,22 @@ const CaseModal = ({ item, onClose }) => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 60, opacity: 0 }}
         transition={{ duration: 0.55, ease }}
-        className="relative max-h-[92svh] w-full max-w-4xl overflow-y-auto overscroll-contain rounded-t-3xl bg-white outline-none md:rounded-3xl"
+        className="relative max-h-[92svh] w-full max-w-4xl overflow-y-auto overscroll-contain rounded-t-4xl bg-white outline-none md:rounded-4xl"
       >
         <div className="relative aspect-[16/9] md:aspect-[16/7]">
           <motion.div layoutId={`case-img-${item.slug}`} className="absolute inset-0 overflow-hidden">
             <img src={item.image} alt="" className="h-full w-full object-cover" />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/20 to-transparent" />
-          <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white text-ink transition-transform hover:rotate-90">
+          <div className="absolute inset-0 bg-gradient-to-t from-night/90 via-night/20 to-violet/20" />
+          <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white text-ink transition-all hover:rotate-90 hover:bg-fog">
             <X size={18} />
           </button>
           <div className="absolute bottom-6 left-6 right-6 text-white md:bottom-8 md:left-10">
-            <div className="mb-3 flex flex-wrap gap-2 text-xs">
-              <span className="rounded-full bg-white/90 px-3 py-1 font-medium text-ink">{item.kind}</span>
-              <span className="rounded-full bg-navy-950/50 px-3 py-1">{item.service}</span>
+            <div className="mb-3 flex flex-wrap gap-2">
+              <span className={`label rounded-full px-3 py-1.5 ${item.kind === 'My venture' ? 'bg-white text-ink' : 'bg-white text-ink'}`}>{item.kind}</span>
+              <span className="label rounded-full bg-night/50 px-3 py-1.5 ring-1 ring-white/20">{item.service}</span>
             </div>
-            <h3 className="max-w-2xl text-3xl leading-tight tracking-tight md:text-5xl md:tracking-[-0.035em]">{item.name}</h3>
+            <h3 className="max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.03em] md:text-5xl md:tracking-[-0.045em]">{item.name}</h3>
           </div>
         </div>
 
@@ -125,9 +127,9 @@ const CaseModal = ({ item, onClose }) => {
           className="p-6 md:p-10"
         >
           <div className="grid gap-4 md:grid-cols-3">
-            {blocks.map(([label, text]) => (
-              <motion.div key={label} variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }} className="rounded-2xl bg-mist p-5">
-                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-royal">{label}</div>
+            {blocks.map(([label, text], i) => (
+              <motion.div key={label} variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }} className={`rounded-2xl p-5 ${blockTints[i]}`}>
+                <div className="label text-ink/60">{label}</div>
                 <p className="mt-2 text-ink">{text}</p>
               </motion.div>
             ))}
@@ -135,22 +137,22 @@ const CaseModal = ({ item, onClose }) => {
 
           <div className="mt-10 grid gap-10 md:grid-cols-2">
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}>
-              <h4 className="text-lg tracking-tight">How it ran</h4>
+              <h4 className="text-lg font-semibold tracking-tight">How it ran</h4>
               <ol className="mt-4 space-y-3">
                 {item.steps.map((s, i) => (
                   <li key={s} className="flex gap-4">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-royal text-xs text-white">{i + 1}</span>
-                    <span className="pt-0.5 text-slate">{s}</span>
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-ink font-mono text-xs text-white">{i + 1}</span>
+                    <span className="pt-0.5 text-muted">{s}</span>
                   </li>
                 ))}
               </ol>
             </motion.div>
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}>
-              <h4 className="text-lg tracking-tight">What the client gets</h4>
+              <h4 className="text-lg font-semibold tracking-tight">What the client gets</h4>
               <ul className="mt-4 space-y-3">
                 {item.deliverables.map((d) => (
-                  <li key={d} className="flex gap-3 text-slate">
-                    <Check size={16} className="mt-1 shrink-0 text-royal" />
+                  <li key={d} className="flex gap-3 text-muted">
+                    <Check size={16} strokeWidth={2.8} className="mt-1 shrink-0 text-violet" />
                     {d}
                   </li>
                 ))}
@@ -159,7 +161,7 @@ const CaseModal = ({ item, onClose }) => {
           </div>
 
           {item.kind === 'Example engagement' && (
-            <p className="mt-10 text-sm text-slate">This is an example of how a typical engagement runs. It does not describe a named client.</p>
+            <p className="mt-10 text-sm text-muted">This is an example of how a typical engagement runs. It does not describe a named client.</p>
           )}
           <div className="mt-8 border-t border-line pt-8">
             <CTAButton>{CTA_LABEL}</CTAButton>
@@ -175,7 +177,8 @@ const slugFromHash = () => {
   return h.startsWith(HASH_PREFIX) ? h.slice(HASH_PREFIX.length) : null;
 };
 
-const Work = () => {
+// `showHeader` is off on the work page, where the page hero already carries the heading.
+const Work = ({ showHeader = true }) => {
   const [openSlug, setOpenSlug] = useState(slugFromHash);
   const openItem = work.find((w) => w.slug === openSlug);
 
@@ -189,23 +192,26 @@ const Work = () => {
   // Keep the URL in sync so a case study can be shared and reopened by link.
   useEffect(() => {
     const url = openSlug ? `${HASH_PREFIX}${openSlug}` : window.location.pathname + window.location.search;
-    window.history.replaceState(null, '', url);
+    // Keep the router's own history state, or its back button loses track.
+    window.history.replaceState(window.history.state, '', url);
   }, [openSlug]);
 
   return (
-    <section id="work" className="bg-mist py-28 md:py-40">
+    <section id="work" className={`bg-pastel pb-28 md:pb-40 ${showHeader ? 'pt-28 md:pt-40' : 'pt-16 md:pt-24'}`}>
       <div className="container-x">
+        {showHeader && (
         <div className="mb-16 flex flex-col justify-between gap-8 md:mb-20 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <Eyebrow>Work</Eyebrow>
             <h2 className="h-section mt-6">
-              <SplitWords text="How we turn problems into progress" />
+              <SplitWords text="Selected" /> <SplitWords text="work" delay={0.25} wordClassName="text-soft" />
             </h2>
           </div>
           <Reveal delay={0.2}>
             <CTAButton variant="ghost">Start a conversation</CTAButton>
           </Reveal>
         </div>
+        )}
 
         <div className="grid gap-x-6 gap-y-14 md:grid-cols-12">
           {work.map((item, i) => (

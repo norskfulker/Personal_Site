@@ -8,7 +8,7 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 
 - Owner: Sri, founder-consultant, based in India.
 - Visitors: startup founders, small and mid-size businesses, government and public-sector decision makers.
-- Site goal: get visitors to book a free 15-minute call. Every page ends with that call-to-action.
+- Site goal: get visitors to book a free 30-minute call. Every page ends with that call-to-action.
 
 ### Brand
 
@@ -67,7 +67,7 @@ Hand this file to the agent (Claude Code / Framer agent). Read CONTEXT first, th
 ### SEO defaults
 
 - Title: Sri | Performance Marketing, Corporate Advisory and Software Audits
-- Description: Performance marketing and branding, advisory for startups and government, and software and audit consulting. Book a free 15-min call.
+- Description: Performance marketing and branding, advisory for startups and government, and software and audit consulting. Book a free 30-min call.
 - One H1 per page. Titles under 60 characters. Descriptions under 160.
 
 ### Rules for editing

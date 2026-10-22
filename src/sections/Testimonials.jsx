@@ -26,19 +26,19 @@ const Testimonials = () => {
   if (!items.length) return null;
 
   return (
-    <section className="overflow-hidden bg-mist py-28 md:py-40">
+    <section className="overflow-hidden bg-paper py-28 md:py-40">
       <div className="container-x grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Eyebrow>Testimonials</Eyebrow>
           <h2 className="h-section mt-6">
-            <SplitWords text="What clients say after working with us" />
+            <SplitWords text="In their" /> <SplitWords text="words" delay={0.2} wordClassName="text-soft" />
           </h2>
           <Reveal delay={0.2}>
-            <p className="mt-6 text-lg text-slate">Fewer guesses, clearer plans, and work that keeps paying off.</p>
+            <p className="mt-6 text-lg text-muted">Fewer guesses, clearer plans, and work that keeps paying off.</p>
             <div className="mt-8">
               <CTAButton>{CTA_LABEL}</CTAButton>
             </div>
-            <p className="mt-10 hidden text-sm text-slate lg:block">← Drag to explore →</p>
+            <p className="label mt-10 hidden text-muted lg:block">← Drag to explore →</p>
           </Reveal>
         </div>
 
@@ -57,8 +57,8 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, ease, delay: i * 0.08 }}
-                className={`relative flex min-h-[360px] w-[82vw] shrink-0 select-none flex-col justify-between rounded-3xl p-8 sm:w-[380px] ${
-                  i === 0 ? 'bg-gradient-to-br from-royal to-navy-800 text-white' : 'bg-white'
+                className={`relative flex min-h-[360px] w-[82vw] shrink-0 select-none flex-col justify-between rounded-4xl p-8 sm:w-[380px] ${
+                  i === 0 ? 'bg-ink text-white' : 'card'
                 }`}
               >
                 {t.sample && (
@@ -66,15 +66,15 @@ const Testimonials = () => {
                     Sample
                   </span>
                 )}
-                <Quote size={28} className={i === 0 ? 'text-aqua' : 'text-royal'} />
-                <blockquote className="my-8 text-xl leading-snug tracking-tight md:text-[1.4rem]">“{t.quote}”</blockquote>
+                <Quote size={28} className={i === 0 ? 'text-white/50' : 'text-ink/30'} />
+                <blockquote className="my-8 text-xl font-medium leading-snug tracking-[-0.02em] md:text-[1.4rem]">“{t.quote}”</blockquote>
                 <figcaption className="flex items-center gap-3">
-                  <span className={`grid h-11 w-11 place-items-center rounded-full text-sm font-medium ${i === 0 ? 'bg-white/15' : 'bg-royal-100 text-royal'}`}>
+                  <span className={`grid h-11 w-11 place-items-center rounded-full text-sm font-medium ${i === 0 ? 'bg-white/20' : 'bg-ink text-white'}`}>
                     {(t.name || t.role).split(/[\s,]+/).slice(0, 2).map((w) => w[0]).join('')}
                   </span>
                   <div>
                     {t.name && <div className="font-medium">{t.name}</div>}
-                    <div className={`text-sm ${i === 0 ? 'text-white/70' : 'text-slate'}`}>{t.role}</div>
+                    <div className={`text-sm ${i === 0 ? 'text-white/80' : 'text-muted'}`}>{t.role}</div>
                   </div>
                 </figcaption>
               </motion.figure>

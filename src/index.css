@@ -3,57 +3,145 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --violet: #6d5cff;
+    --pink: #ff4fb8;
+    --orange: #ff7a1a;
+    --lime: #c8ff2e;
+    --cyan: #22d3ee;
+  }
+
   html {
     color-scheme: light;
   }
 
   body {
-    @apply bg-mist text-ink antialiased font-sans;
-    font-feature-settings: 'ss01', 'cv11';
+    @apply bg-paper text-ink antialiased font-sans;
   }
 
   ::selection {
-    @apply bg-royal text-white;
+    @apply bg-ink text-white;
   }
 }
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-[1280px] px-5 md:px-8;
+    @apply mx-auto w-full max-w-[1200px] px-4 md:px-8;
   }
 
-  /* The site's one card: white, rounded, with a soft layered shadow that deepens on hover. */
+  /* The light card: white, hairline border, a whisper of shadow. Vercel, not skeuomorph. */
   .card {
-    @apply relative rounded-[1.75rem] bg-white ring-1 ring-ink/[0.04] transition-[box-shadow,transform] duration-500;
-    box-shadow: 0 1px 2px rgba(10, 16, 36, 0.04), 0 12px 32px -12px rgba(10, 16, 36, 0.14), 0 32px 64px -32px rgba(10, 16, 36, 0.18);
+    @apply relative rounded-[1.5rem] border border-line bg-white transition-[box-shadow,border-color] duration-500;
+    box-shadow: 0 1px 2px rgba(10, 10, 11, 0.04), 0 16px 40px -24px rgba(10, 10, 11, 0.16);
   }
 
   .card-hover:hover {
-    box-shadow: 0 2px 4px rgba(10, 16, 36, 0.05), 0 20px 44px -14px rgba(10, 16, 36, 0.22), 0 48px 90px -36px rgba(36, 80, 255, 0.35);
+    @apply border-ink/20;
+    box-shadow: 0 2px 4px rgba(10, 10, 11, 0.05), 0 24px 50px -28px rgba(10, 10, 11, 0.28);
   }
 
   .h-display {
-    @apply font-bold tracking-tightest leading-[0.95];
+    @apply font-semibold tracking-tightest leading-[0.92];
   }
 
   .h-section {
-    @apply text-4xl md:text-6xl font-semibold tracking-tightest leading-[1];
+    @apply text-[2.6rem] font-semibold leading-[1] tracking-[-0.05em] md:text-6xl lg:text-7xl;
+  }
+
+  /* Small supporting label: numbers, tags, captions. */
+  .label {
+    @apply font-mono text-[12px] font-medium tracking-tight;
   }
 }
 
 @layer utilities {
-  /* Soft glow without filter: blur — a radial gradient is far cheaper to paint and move. */
-  .glow {
-    background: radial-gradient(closest-side, var(--glow, rgba(36, 80, 255, 0.55)), transparent);
+  /* Brand gradient for text, kept for one moment per page at most (the hero line).
+     Put it on the element that owns the glyphs: background-clip: text does not reach transformed children. */
+  .text-gradient {
+    background-image: linear-gradient(90deg, var(--violet), var(--pink) 55%, var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
-  .grain::after {
+  /* Second half of a two-tone headline: same colour as the first, dimmed. Works on light and dark. */
+  .text-soft {
+    opacity: 0.42;
+  }
+
+  .bg-brand {
+    background-image: linear-gradient(100deg, var(--violet), var(--pink) 55%, var(--orange));
+  }
+
+  /* Hollow letters. Only the fill goes transparent, so the stroke keeps the text colour. */
+  /* Light sections with a hint of colour: a faint violet and warm wash over paper. */
+  .bg-pastel {
+    background-color: #fafafa;
+    background-image: radial-gradient(50% 40% at 0% 0%, rgba(109, 92, 255, 0.07), transparent 70%),
+      radial-gradient(45% 40% at 100% 100%, rgba(255, 122, 26, 0.06), transparent 70%);
+  }
+
+  .text-outline {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+
+  /* Soft colour blob for the mesh: a radial gradient is far cheaper to move than filter: blur. */
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, var(--c), transparent);
+    will-change: transform;
+  }
+
+  /* Vercel-style hairline grid, faded out towards the edges. */
+  .grid-lines {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  }
+
+  .grid-lines-dark {
+    background-image: linear-gradient(to right, rgba(10, 10, 11, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 10, 11, 0.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at top, #000 10%, transparent 70%);
+  }
+
+  /* Gradient hairline border, drawn with a mask so the fill stays whatever the card is. */
+  .border-gradient::after {
     content: '';
     position: absolute;
     inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(120deg, var(--violet), var(--pink), var(--orange), var(--lime));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     pointer-events: none;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Cursor spotlight. trackSpot() in lib/anim.js feeds --x and --y. Sits behind the content. */
+  .spot {
+    isolation: isolate;
+  }
+
+  .spot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), var(--spot, rgba(10, 10, 11, 0.04)), transparent 60%);
+  }
+
+  .spot:hover::before {
+    opacity: 1;
   }
 
   .mask-fade-x {

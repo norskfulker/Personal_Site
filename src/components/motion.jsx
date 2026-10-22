@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate, motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CONTACT_URL, CTA_LABEL } from '../data/content';
 import { ease } from '../lib/anim';
+import { palettes } from '../lib/palettes';
 
 
 export const Reveal = ({ children, className = '', delay = 0, y = 32, as = 'div' }) => {
@@ -21,7 +23,7 @@ export const Reveal = ({ children, className = '', delay = 0, y = 32, as = 'div'
 };
 
 // Headline whose words rise out of a mask, one after another.
-export const SplitWords = ({ text, className = '', delay = 0, stagger = 0.06, animateOnMount = false }) => {
+export const SplitWords = ({ text, className = '', wordClassName = '', delay = 0, stagger = 0.06, animateOnMount = false }) => {
   const words = text.split(' ');
   const trigger = animateOnMount
     ? { initial: 'hidden', animate: 'show' }
@@ -37,10 +39,10 @@ export const SplitWords = ({ text, className = '', delay = 0, stagger = 0.06, an
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-bottom" aria-hidden>
           <motion.span
-            className="inline-block"
+            className={`inline-block ${wordClassName}`}
             variants={{
-              hidden: { y: '110%', rotate: 4 },
-              show: { y: '0%', rotate: 0, transition: { duration: 1, ease } },
+              hidden: { y: '110%' },
+              show: { y: '0%', transition: { duration: 1, ease } },
             }}
           >
             {word}
@@ -100,43 +102,43 @@ export const ParallaxImage = ({ src, alt = '', className = '', strength = 12, zo
 };
 
 export const Eyebrow = ({ children, light = false, className = '' }) => (
-  <Reveal y={12} className={`flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.18em] ${light ? 'text-white/70' : 'text-slate'} ${className}`}>
-    <span className={`h-1.5 w-1.5 rounded-full ${light ? 'bg-aqua' : 'bg-royal'}`} />
-    {children}
+  <Reveal y={12} className={`flex ${className}`}>
+    <span className={`text-sm font-medium ${light ? 'text-white/55' : 'text-muted'}`}>{children}</span>
   </Reveal>
 );
 
-// Pill button with an arrow tile that slides on hover. The site's one job is getting this clicked,
-// so it is loud by default: heavy label, solid fill, and a lift on hover.
+const MotionLink = motion.create(Link);
+
+// Pill button with an arrow tile. On hover the label rolls up and the arrow leaves through the
+// top-right corner while a fresh one enters from bottom-left. The travel distance equals the tile
+// size, so the outgoing arrow is fully gone at every button size.
 export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 'primary', size = 'md', className = '' }) => {
   const styles = {
-    primary: 'bg-royal text-white shadow-[0_14px_40px_-12px_rgba(36,80,255,0.9)] hover:bg-royal-600 hover:shadow-[0_18px_50px_-12px_rgba(36,80,255,1)]',
-    aqua: 'bg-aqua text-ink shadow-[0_14px_40px_-12px_rgba(62,230,193,0.8)] hover:bg-white',
-    light: 'bg-white text-ink hover:bg-aqua',
-    ghost: 'bg-ink/[0.04] text-ink ring-1 ring-ink/15 hover:bg-ink hover:text-white',
-    dark: 'bg-ink text-white hover:bg-royal',
+    primary: 'bg-ink text-white hover:bg-ink/85',
+    bright: 'bg-white text-ink hover:bg-white/90',
+    ghost: 'bg-white text-ink ring-1 ring-line hover:ring-ink/40',
   };
   const tile = {
-    primary: 'bg-white text-royal',
-    aqua: 'bg-ink text-aqua',
-    light: 'bg-ink text-white',
-    ghost: 'bg-ink text-white group-hover:bg-white group-hover:text-ink',
-    dark: 'bg-aqua text-ink',
+    primary: 'bg-white text-ink',
+    bright: 'bg-ink text-white',
+    ghost: 'bg-ink text-white',
   };
   const sizes = {
-    md: { pill: 'gap-4 py-2 pl-6 pr-2 text-[15px]', tile: 'h-9 w-9', icon: 17 },
-    lg: { pill: 'gap-5 py-2.5 pl-7 pr-2.5 text-base md:py-3 md:pl-8 md:pr-3 md:text-lg', tile: 'h-11 w-11 md:h-12 md:w-12', icon: 20 },
+    md: { pill: 'gap-4 py-2 pl-6 pr-2 text-[15px]', tile: 'h-9 w-9', icon: 16, shift: 36 },
+    lg: { pill: 'gap-5 py-2.5 pl-7 pr-2.5 text-base md:pl-8 md:text-[17px]', tile: 'h-11 w-11', icon: 18, shift: 44 },
   };
   const sz = sizes[size];
+  // Paths like /pricing stay in the app; anything else (the booking page) opens in a new tab.
+  const internal = href.startsWith('/');
+  const Comp = internal ? MotionLink : motion.a;
+  const linkProps = internal ? { to: href } : { href, target: href.startsWith('#') ? undefined : '_blank', rel: 'noreferrer' };
+  const arrow = 'absolute inset-0 grid place-items-center';
   return (
-    <motion.a
-      href={href}
-      target={href.startsWith('#') ? undefined : '_blank'}
-      rel="noreferrer"
+    <Comp
+      {...linkProps}
       whileHover="hover"
-      whileTap={{ scale: 0.96 }}
-      variants={{ hover: { y: -2 } }}
-      className={`group inline-flex items-center rounded-full font-semibold tracking-tight transition-[background-color,color,box-shadow] duration-300 ${sz.pill} ${styles[variant]} ${className}`}
+      whileTap={{ scale: 0.97 }}
+      className={`group inline-flex items-center rounded-full font-medium tracking-tight transition-colors duration-300 ${sz.pill} ${styles[variant]} ${className}`}
     >
       <span className="relative block overflow-hidden">
         <motion.span className="block" variants={{ hover: { y: '-110%' } }} transition={{ duration: 0.4, ease }}>
@@ -146,15 +148,15 @@ export const CTAButton = ({ children = CTA_LABEL, href = CONTACT_URL, variant = 
           {children}
         </motion.span>
       </span>
-      <span className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full transition-colors duration-300 ${sz.tile} ${tile[variant]}`}>
-        <motion.span variants={{ hover: { x: 18, y: -18 } }} transition={{ duration: 0.35, ease }}>
-          <ArrowUpRight size={sz.icon} strokeWidth={2.4} />
+      <span className={`relative shrink-0 overflow-hidden rounded-full ${sz.tile} ${tile[variant]}`}>
+        <motion.span className={arrow} variants={{ hover: { x: sz.shift, y: -sz.shift } }} transition={{ duration: 0.35, ease }}>
+          <ArrowUpRight size={sz.icon} strokeWidth={2.2} />
         </motion.span>
-        <motion.span className="absolute" initial={{ x: -18, y: 18 }} variants={{ hover: { x: 0, y: 0 } }} transition={{ duration: 0.35, ease }}>
-          <ArrowUpRight size={sz.icon} strokeWidth={2.4} />
+        <motion.span className={arrow} initial={{ x: -sz.shift, y: sz.shift }} variants={{ hover: { x: 0, y: 0 } }} transition={{ duration: 0.35, ease }}>
+          <ArrowUpRight size={sz.icon} strokeWidth={2.2} />
         </motion.span>
       </span>
-    </motion.a>
+    </Comp>
   );
 };
 
@@ -203,3 +205,16 @@ export const Video = ({ src, poster, className = '', style }) => {
     />
   );
 };
+
+// Stripe-style colour field: soft blobs drifting on slow, offset loops behind dark sections.
+export const Mesh = ({ className = '', blobs = palettes.violet }) => (
+  <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
+    {blobs.map((b, i) => (
+      <div
+        key={i}
+        className={`blob ${b.cls}`}
+        style={{ '--c': b.c, animation: `drift ${b.t} ease-in-out infinite${b.rev ? ' reverse' : ''}` }}
+      />
+    ))}
+  </div>
+);

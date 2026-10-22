@@ -38,17 +38,13 @@ const StickyCTA = () => {
           transition={{ duration: 0.5, ease }}
           className="fixed inset-x-0 bottom-3 z-40 flex justify-center px-3 md:bottom-5"
         >
-          <div className="flex w-full max-w-[560px] items-center justify-between gap-3 rounded-full bg-ink py-2 pl-5 pr-2 text-white shadow-[0_20px_60px_-15px_rgba(10,16,36,0.7)] ring-1 ring-white/10">
+          <div className="flex w-full max-w-[560px] items-center justify-between gap-3 rounded-full bg-night/90 py-2 pl-5 pr-2 text-white shadow-[0_20px_60px_-15px_rgba(5,5,7,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
             <span className="flex items-center gap-2.5 text-sm font-medium">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-aqua opacity-70" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-aqua" />
-              </span>
-              <span className="hidden sm:inline">Free 15 minutes. Plain answers.</span>
-              <span className="sm:hidden">Free 15-min call</span>
+              <span className="hidden sm:inline">Free 30 minutes. Plain answers.</span>
+              <span className="sm:hidden">Free 30-min call</span>
             </span>
-            <CTAButton variant="aqua" className="!gap-3 !py-1.5 !pl-5 !text-[14px]">
-              <span className="hidden sm:inline">Book a free 15-min call</span>
+            <CTAButton variant="bright" className="!gap-3 !py-1.5 !pl-5 !text-[14px]">
+              <span className="hidden sm:inline">Book a free 30-min call</span>
               <span className="sm:hidden">Book now</span>
             </CTAButton>
           </div>

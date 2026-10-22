@@ -1,56 +1,58 @@
-import { useState } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import SmoothScroll from './components/SmoothScroll';
 import Navbar from './components/Navbar';
-import Preloader from './components/Preloader';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import ZoomReel from './sections/ZoomReel';
-import Services from './sections/Services';
-import Values from './sections/Values';
-import Work from './sections/Work';
-import Industries from './sections/Industries';
-import Testimonials from './sections/Testimonials';
-import Approach from './sections/Approach';
-import Difference from './sections/Difference';
-import FAQ from './sections/FAQ';
-import Pricing from './sections/Pricing';
 import StickyCTA from './components/StickyCTA';
 import Footer from './components/Footer';
 import Contact from './sections/Contact';
+import Home from './pages/Home';
+import ServicePage from './pages/ServicePage';
+import PricingPage from './pages/PricingPage';
+import AboutPage from './pages/AboutPage';
+import WorkPage from './pages/WorkPage';
+import BlogPage from './pages/BlogPage';
+import NotFound from './pages/NotFound';
+import { ReadyContext } from './lib/page';
 
-const ScrollProgress = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
-  return <motion.div style={{ scaleX }} className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-royal to-aqua" />;
+// New page starts at the top. A case-study link (#case-…) opens its modal instead, so leave that alone.
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (window.location.hash.startsWith('#case-')) return;
+    if (window.lenis) window.lenis.scrollTo(0, { immediate: true });
+    else window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 };
 
 function App() {
-  const [ready, setReady] = useState(false);
+  const { pathname } = useLocation();
 
   return (
-    <SmoothScroll>
-      <Preloader onDone={() => setReady(true)} />
-      <ScrollProgress />
-      <Navbar />
-      <main>
-        <Hero ready={ready} />
-        <Services />
-        <Industries />
-        <Pricing />
-        <About />
-        <ZoomReel />
-        <Values />
-        <Work />
-        <Testimonials />
-        <Approach />
-        <Difference />
-        <FAQ />
+    <ReadyContext.Provider value>
+      <SmoothScroll>
+        <ScrollToTop />
+        <Navbar />
+        <motion.main key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/marketing" element={<ServicePage slug="marketing" />} />
+            <Route path="/advisory" element={<ServicePage slug="advisory" />} />
+            <Route path="/software" element={<ServicePage slug="software" />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </motion.main>
+        {/* Every page ends with the booking call to action (owner brief). */}
         <Contact />
-      </main>
-      <Footer />
-      <StickyCTA />
-    </SmoothScroll>
+        <Footer />
+        <StickyCTA />
+      </SmoothScroll>
+    </ReadyContext.Provider>
   );
 }
 
